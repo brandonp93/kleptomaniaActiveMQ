@@ -33,3 +33,4 @@ Como idea de juego dos equipos comparten un mismo tablero, los equipos van a est
 ### Status Badge
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/10786dec0a4a456582a7fd2bc0202442)](https://www.codacy.com/app/Kleptomania/KleptomaniaTheGame?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Kleptomania/KleptomaniaTheGame&amp;utm_campaign=Badge_Grade)
+[![CircleCI](https://circleci.com/gh/Kleptomania/KleptomaniaTheGame/tree/master.svg?style=svg)](https://circleci.com/gh/Kleptomania/KleptomaniaTheGame/tree/master)
