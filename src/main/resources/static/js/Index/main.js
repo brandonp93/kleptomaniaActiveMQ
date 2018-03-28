@@ -3,7 +3,6 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
 (function() {
 
 	"use strict";
@@ -44,7 +43,7 @@
 						},
 
 					// Delay.
-						delay: 6000
+						delay: 8000
 
 				};
 
@@ -112,8 +111,8 @@
 					$message;
 
 			// Bail if addEventListener isn't supported.
-				if (!('addEventListener' in $form))
-					return;
+				//if (!('addEventListener' in $form))
+				//	return;
 
 			// Message.
 				$message = document.createElement('span');
@@ -162,6 +161,8 @@
 
 							// Show message.
 								$message._show('success', 'Thank you!');
+
+                                redirect();
 								//$message._show('failure', 'Something went wrong. Please try again.');
 
 						}, 750);
@@ -169,5 +170,6 @@
 				});
 
 		})();
+
 
 })();

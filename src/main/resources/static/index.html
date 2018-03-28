@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Eventually by HTML5 UP</title>
+		<title>Kleptomania</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="js/Index/ie/html5shiv.js"></script><![endif]-->
@@ -23,9 +23,9 @@
 		<!-- Enter your name -->
 		<div id="div" class="div0">
 			<h4>Enter your name</h4>
-			<form id="signup-form" method="post" action="#">
-				<input type="email" name="Nickname" id="email" placeholder="Nickname" />
-				<input type="submit" value="Play" />
+			<form id="signup-form" method="post" action="http://www.google.com/">
+				<input type="text" name="Nickname" minlength="5" id="nickname" placeholder="Nickname" value="brendon" required="required" pattern="[A-Za-z0-9]{1,20}"/>
+				<input type="submit" value="Join" onclick="joinRoom()" />
 			</form>
 		</div>
 
@@ -45,13 +45,16 @@
 					<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 				</ul>
 				<ul class="copyright">
-					<li>&copy; Untitled.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>&copy;Kleptomania.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
 				</ul>
 			</footer>
 
 		<!-- Scripts -->
+			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+			<script src="/webjars/jquery/jquery.min.js"></script>
 			<!--[if lte IE 8]><script src="js/Index/ie/respond.min.js"></script><![endif]-->
 			<script src="js/Index/main.js"></script>
+			<script src="js/kleptomaniaJoinController.js"></script>
 
 	</body>
 </html>
