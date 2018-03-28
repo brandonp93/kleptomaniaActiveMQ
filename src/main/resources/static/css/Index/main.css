@@ -40,8 +40,9 @@
 	}
 
 	table {
+		transform: translateX(+10%);
 		border-collapse: collapse;
-		border-spacing: 0;
+		border-spacing: 0.2px;
 	}
 
 	body {
@@ -1118,6 +1119,40 @@
 		text-align: center;
 		margin-bottom: 1.5em;
 	}
+
+    table.blueTable {
+		width: 25%;
+        text-align: left;
+		margin-bottom: 30px;
+
+    }
+    table.blueTable td, table.blueTable th {
+        padding: 3px 2px;
+
+    }
+
+	table.blueTable tr:nth-child(even)	{
+		background-color: rgba(89, 89, 89,0.3);
+	}
+
+    table.blueTable  th {
+        font-weight: bold;
+		font-size: 17px;
+		color: #ffffff;
+
+    }
+
+	table.blueTable  td {
+		color: #1cb495;
+		font-weight: 600;
+		padding-left: 0.3em;
+	}
+
+	table.blueTable  tr:hover {
+		background-color: rgba(13,13,13,0.5);
+	}
+
+
 
 
 /* Footer */

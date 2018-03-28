@@ -5,7 +5,9 @@
  */
 package edu.eci.arsw.kleptomania.services;
 import edu.eci.arsw.kleptomania.model.Player;
+import edu.eci.arsw.kleptomania.model.Room;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  *
@@ -17,10 +19,12 @@ public interface kleptomaniaServices {
 
     public void addCops(int roomNumber,Player p) throws kleptomaniaServicesException;
     
-    public void addRoom(int roomNumber) throws kleptomaniaServicesException;
+    public void addRoom(int roomNumber, Room r) throws kleptomaniaServicesException;
 
     public List<Player> getThieves(int roomNumber) throws kleptomaniaServicesException;
 
     public List<Player> getCops(int roomNumber) throws kleptomaniaServicesException;
+    
+    public CopyOnWriteArrayList<Room> getCurrentRooms() throws kleptomaniaServicesException;
 
 }

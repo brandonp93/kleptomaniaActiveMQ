@@ -19,21 +19,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class kleptomaniaServicesStub implements kleptomaniaServices{
     
-    private ConcurrentHashMap<Integer, Room> rooms = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<Integer, CopyOnWriteArrayList<Player>> players = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<Integer, Room> rooms = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<Integer, CopyOnWriteArrayList<Player>> players = new ConcurrentHashMap<>();
 
 
     
     @Override
     public void addThief(int roomNumber, Player player) throws kleptomaniaServicesException {
         /*if (!players.containsKey(player.getIdentification())) {
-            players.get(1).add(player);  
+            
         } else {
            throw new kleptomaniaServicesException("This player have been joined already " + player);
         }*/
-        Player p = new Player();
-        p.setNickname("UAN");
-        players.get(1).add(p); 
+        players.get(roomNumber).add(player);  
     }
 
     @Override
@@ -58,12 +56,37 @@ public class kleptomaniaServicesStub implements kleptomaniaServices{
     }
 
     @Override
-    public void addRoom(int roomNumber) throws kleptomaniaServicesException {
+    public void addRoom(int roomNumber, Room r) throws kleptomaniaServicesException {
         if (rooms.containsKey(roomNumber)) {
             throw new kleptomaniaServicesException("This room have been created already " + roomNumber);
         } else {
-            rooms.put(roomNumber,new Room(roomNumber));
-            players.put(roomNumber, new CopyOnWriteArrayList());
+            rooms.put(roomNumber,r);
+            CopyOnWriteArrayList<Player> temp = new CopyOnWriteArrayList();
+            temp.add(r.getHost());
+            players.put(roomNumber,temp);
+            for(Integer p: players.keySet()){
+                String key =p.toString();
+                CopyOnWriteArrayList<Player> value = players.get(p);  
+                for(Player u: value){
+                    System.out.println(key + " " + u.getNickname() );  
+                }
+                
+            }
+        }
+    }
+    
+    @Override
+    public CopyOnWriteArrayList<Room> getCurrentRooms() throws kleptomaniaServicesException{
+        System.out.println("rooms api: " + rooms.keys());
+        if(!rooms.isEmpty()){
+            CopyOnWriteArrayList<Room> currentRooms = new CopyOnWriteArrayList();
+            for(Room r: rooms.values()){
+                currentRooms.add(r);
+            }
+            return currentRooms;
+        }
+        else{
+            throw new kleptomaniaServicesException("There are no rooms");
         }
     }
    
