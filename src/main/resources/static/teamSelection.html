@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
 </head>
-<body>
+<body onload="TeamControllerModule.loadingCurrentPlayers()">
     <!-- Logo -->
 
         <div id="div"></div>
@@ -25,11 +25,14 @@
 
     <!-- Scripts -->
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="js/kleptomaniaRedirectController.js"></script>
+        <script src="js/kleptomaniaTeamSelectController.js"></script>
         <script src="/webjars/jquery/jquery.min.js"></script>
         <script src="/webjars/sockjs-client/sockjs.min.js"></script>
         <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-        <script src="js/stompClient.js"></script>
-        <script src="js/prueba.js"></script>
+        <!--script src="js/stompClient.js"></script>
+        <script src="js/prueba.js"></script-->
+        <script src="js/kleptomaniaRestController.js"></script>
 
 </body>
 </html>
