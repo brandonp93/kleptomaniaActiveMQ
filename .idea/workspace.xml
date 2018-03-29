@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6f44b42a-a3dd-49b3-a3f9-f96101c4a1fd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/restcontrollers/kleptomaniaAPIController.java" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/restcontrollers/kleptomaniaAPIController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/prueba.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/prueba.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/roomSelection.html" afterPath="$PROJECT_DIR$/src/main/resources/static/roomSelection.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/teamSelection.html" afterPath="$PROJECT_DIR$/src/main/resources/static/teamSelection.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prueba.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="prueba.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/prueba.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
+            <state relative-caret-position="203">
               <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
               <folding />
             </state>
@@ -71,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kleptomaniaJoinController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="kleptomaniaJoinController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="75" column="9" lean-forward="false" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
+            <state relative-caret-position="51">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -163,8 +159,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/roomSelection.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/teamSelection.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/stompClient.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/prueba.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js" />
       </list>
     </option>
   </component>
@@ -174,7 +170,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -428,15 +424,15 @@
       <workItem from="1522248503340" duration="27520000" />
       <workItem from="1522278860651" duration="2657000" />
       <workItem from="1522285816159" duration="13690000" />
-      <workItem from="1522337700366" duration="7330000" />
+      <workItem from="1522337700366" duration="8076000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93587000" />
+    <option name="totallyTimeSpent" value="94333000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -620,14 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/roomSelection.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
@@ -654,18 +642,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/prueba.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="75" column="9" lean-forward="false" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
+        <state relative-caret-position="203">
+          <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/prueba.js">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/roomSelection.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+        <state relative-caret-position="731">
+          <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>

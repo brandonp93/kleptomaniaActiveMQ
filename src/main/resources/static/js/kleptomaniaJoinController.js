@@ -21,22 +21,6 @@ var rooms;
 **/
 var nickname;
 
-
-    function loadCurrentGames() {
-        currentGames = document.getElementById('blueTable').value;
-        var row = table.insertRow(table.length);
-        console.log(rooms);
-    }
-
-    function joinRoom () {
-        nickname = document.getElementById('nickname').value;
-        sessionStorage.setItem('nickname', document.getElementById('nickname').value);
-
-    }
-
-
-
-
     function newLobby() {
 
         var numero = document.getElementById("nickname1").value;
@@ -64,7 +48,7 @@ var nickname;
             rooms = response['data'];
             showCurrentRooms(rooms);
         }).catch(function (error) {
-            console.log(error);
+            console.log('There are no rooms currently, please create a new one.');
         });
     }
 
