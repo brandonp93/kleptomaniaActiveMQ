@@ -2,18 +2,34 @@ var nickname;
 function redirectLobby() {
 
     nickname = document.getElementById('nickname').value;
-    sessionStorage.setItem('nickname', document.getElementById('nickname').value);
-    console.log("userORM: " + nickname)
+
+    if (nickname==="") {
+        //alert("Enter your username");
+    }
+
+    else {
+        sessionStorage.setItem('nickname', document.getElementById('nickname').value);
+        document.location.href = "roomSelection.html";
+    }
 
 }
 
-var userRoom;
+var nickname1;
 function redirectTeam() {
 
-    userRoom = document.getElementById('createNewRoom').value;
-    sessionStorage.setItem('createNewRoom', document.getElementById('createNewRoom').value);
-    console.log("userORM: " + userRoom)
+    nickname1 = document.getElementById('nickname1').value;
 
+
+    if (nickname1==="" ) {
+        //console.log(rooms);
+    }
+
+    else {
+        newLobby();
+        sessionStorage.setItem('nickname1', document.getElementById('nickname1').value);
+        document.location.href = "teamSelection.html";
+    }
 
 
 }
+

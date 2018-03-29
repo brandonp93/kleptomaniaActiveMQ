@@ -62,9 +62,10 @@ public class kleptomaniaAPIController {
         } 
 
     @RequestMapping(path = "/{room}/thief",method = RequestMethod.PUT)
-    public ResponseEntity<?> addThief(@PathVariable String roomNumber,@RequestBody Player player) throws kleptomaniaServicesException {
+    public ResponseEntity<?> addThief(@PathVariable("room") String roomNumber,@RequestBody Player player) throws kleptomaniaServicesException {
            
             try {       
+                System.out.println("Player: "+ player.getNickname());
                 services.addThief(Integer.parseInt(roomNumber), player);
                 msgt.convertAndSend("/topic/currentPlayers." + roomNumber,services.getThieves(Integer.parseInt(roomNumber)));     
             } catch (kleptomaniaServicesException ex) {
@@ -79,8 +80,7 @@ public class kleptomaniaAPIController {
     public ResponseEntity<?> controllerPostRoom(@RequestBody Room r) throws kleptomaniaServicesException {
         synchronized(services){
             try{
-                System.out.println("Entre POST");
-                System.out.println("ROOM: "+  r.getRoomNumber() + "Playa: " + r.getHost().getNickname());
+
                 if(r.getRoomNumber() == 0){
                      throw new kleptomaniaServicesException("Insert a valid number room");
                 }

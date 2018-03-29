@@ -1,17 +1,5 @@
 var stompClient = null;
-function thief(lobby){
 
-    axios({
-        method: 'put',
-        url: 'lobby/'+lobby+'/thief',
-        data: {nickname: nickname}
-    }).then(function (response) {
-        console.log(lobby);
-    })
-        .catch(function (error) {
-            console.log(error);
-    });
-}
 
 function connect(lobby,callback) {
     console.log("CONEECT PAPU");
@@ -26,40 +14,61 @@ function connect(lobby,callback) {
             console.log(dataa);
 
         });
-        stompClient.subscribe('/topic/Player.', function () {
-            console.log("lobby: " + lobby)
-            console.log("DARA");
-            console.log(dataa);
-
-        });
         callback(lobby);
     });
 
 }
 
 function getCurrent(lobby) {
-    console.log("GET CUREEN PAPU");
+    console.log("GET CUREEN PAPU: " +lobby );
     axios.get('/lobby/'+lobby+'/thief').then(function (response) {
         console.log(response);
+        showCurrentPlayers(response['data'])
     }).catch(function (error) {
         console.log(error);
     });
 
 }
-function cargar() {
-    stompClient.send("/topic/currentPlayers.1", {},JSON.stringify([{"nickname":"brendon","identification":null}]));
+
+function showCurrentPlayers(players) {
+    var table = document.getElementById("currentPlayers");
+    var row = table.insertRow(table.length);
+    for (var i in players){
+        console.log("i: " + players[i])
+        var tr = document.createElement("tr");
+        var td = document.createElement("td");
+        td.appendChild(document.createTextNode(players[i]['nickname']));
+        tr.appendChild(td);
+        table.appendChild(tr);
+    }
+}
+
+
+
+
+
+$(document).ready(function () {
+        nickname = sessionStorage.getItem('nickname');
+        nickname1 = sessionStorage.getItem('nickname1');
+        if(nickname1!=null){
+
+                console.info('loading script!... ' + nickname1),
+                connect(nickname1,function (){
+                    getCurrent(nickname1);
+                })
+        }
+        else{
+            invitedRoom = sessionStorage.getItem('invitedRoom');
+            console.log('Invitado: ' + invitedRoom);
+        }
 
 
 }
 
-$(document).ready(
-    nickname = sessionStorage.getItem('nickname'),
 
-    console.info('loading script!... '),
-    connect(1,function (){
-        thief(1);
-    })
-
-
+    /*connect(nickname1,function (){
+        thief(nickname1);
+    })*/
 
     );
+

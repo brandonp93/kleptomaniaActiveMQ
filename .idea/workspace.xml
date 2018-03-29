@@ -2,17 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f44b42a-a3dd-49b3-a3f9-f96101c4a1fd" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/images/thief1.jpg" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/model/Room.java" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/model/Room.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/restcontrollers/kleptomaniaAPIController.java" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/restcontrollers/kleptomaniaAPIController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/services/kleptomaniaServices.java" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/services/kleptomaniaServices.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/services/kleptomaniaServicesStub.java" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/services/kleptomaniaServicesStub.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/Index/main.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/Index/main.css" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/Index/font-awesome.min.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/Index/ie8.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/Index/ie9.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/Index/main.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/KleptomanGeneralStyles.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/FontAwesome.otf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/city.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/city1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/kleptomania.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/swat.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/thief.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/thief1.jpg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Index/main.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/Index/main.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Index/ie/html5shiv.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Index/ie/respond.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Index/image.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Index/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Index/main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/prueba.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/prueba.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/roomSelection.html" afterPath="$PROJECT_DIR$/src/main/resources/static/roomSelection.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/base/_bg.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/base/_page.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/base/_typography.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_button.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_form.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_icon.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_list.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_section.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/ie8.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/ie9.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/layout/_footer.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/layout/_header.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/layout/_signup-form.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/libs/_functions.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/libs/_mixins.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/libs/_skel.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/libs/_vars.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/main.scss" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/teamSelection.html" afterPath="$PROJECT_DIR$/src/main/resources/static/teamSelection.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,18 +64,48 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="55" column="34" lean-forward="false" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
+            <state relative-caret-position="376">
+              <caret line="31" column="70" lean-forward="false" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="roomSelection.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="roomSelection.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/roomSelection.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="26" column="46" lean-forward="false" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+            <state relative-caret-position="-18">
+              <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="prueba.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/prueba.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="61" column="52" lean-forward="false" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teamSelection.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/teamSelection.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1">
+              <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kleptomaniaJoinController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="109" column="10" lean-forward="false" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -48,28 +114,18 @@
       <file leaf-file-name="indexToRoom.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="170">
+              <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="86" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/main.js">
+      <file leaf-file-name="kleptomania.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/kleptomania.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="163" column="41" lean-forward="true" selection-start-line="163" selection-start-column="41" selection-end-line="163" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="162" column="18" lean-forward="false" selection-start-line="162" selection-start-column="18" selection-end-line="162" selection-end-column="18" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -82,6 +138,7 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -92,6 +149,7 @@
       <find>alert</find>
       <find>tha</find>
       <find>invalid</find>
+      <find>post</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -116,7 +174,6 @@
         <option value="$PROJECT_DIR$/target/classes/static/css/Index/main.css" />
         <option value="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/services/kleptomaniaServicesStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/services/kleptomaniaServices.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/restcontrollers/kleptomaniaAPIController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/Index/RestControllerModule.js" />
         <option value="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/model/Player.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/RestControllerModule.js" />
@@ -124,16 +181,19 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/js/Index/image.js" />
         <option value="$PROJECT_DIR$/src/main/resources/indexToRoom.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/Index/roomToTeam.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/teamSelection.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/roomToTeam.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/prueba.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/Index/index.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/Index/main.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/restcontrollers/kleptomaniaAPIController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/Index/main.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/roomSelection.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/kleptomania.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/kleptomania.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/teamSelection.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/roomSelection.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/prueba.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js" />
       </list>
     </option>
   </component>
@@ -164,7 +224,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -203,6 +263,15 @@
               <item name="KleptomaniaTheGame" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="kleptomania" type="462c0819:PsiDirectoryNode" />
+              <item name="restcontrollers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KleptomaniaTheGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KleptomaniaTheGame" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -229,36 +298,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="Index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KleptomaniaTheGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KleptomaniaTheGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KleptomaniaTheGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KleptomaniaTheGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KleptomaniaTheGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KleptomaniaTheGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="Index" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KleptomaniaTheGame" type="b2602c69:ProjectViewProjectNode" />
@@ -270,9 +310,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -285,16 +325,17 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\xbran\Documents\ARSW\Proyecto\KleptomaniaTheGame\src\main\resources\static\js" />
-      <recent name="C:\Users\xbran\Documents\ARSW\Proyecto\KleptomaniaTheGame\src\main\resources\static\css\Index" />
-      <recent name="C:\Users\xbran\Documents\ARSW\Proyecto\KleptomaniaTheGame\src\main\resources\static\css" />
-      <recent name="C:\Users\xbran\Documents\ARSW\Proyecto\KleptomaniaTheGame\src\main\resources\static\fonts" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\xbran\Documents\ARSW\Proyecto\KleptomaniaTheGame\src\main\resources\static\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\xbran\Documents\ARSW\Proyecto\KleptomaniaTheGame\src\main\resources\static\css" />
+      <recent name="C:\Users\xbran\Documents\ARSW\Proyecto\KleptomaniaTheGame\src\main\resources\static\js" />
+      <recent name="C:\Users\xbran\Documents\ARSW\Proyecto\KleptomaniaTheGame\src\main\resources\static\css\Index" />
+      <recent name="C:\Users\xbran\Documents\ARSW\Proyecto\KleptomaniaTheGame\src\main\resources\static\fonts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -414,22 +455,24 @@
       <workItem from="1522183964411" duration="633000" />
       <workItem from="1522186177513" duration="28206000" />
       <workItem from="1522248503340" duration="27520000" />
-      <workItem from="1522278860651" duration="1648000" />
+      <workItem from="1522278860651" duration="2657000" />
+      <workItem from="1522285816159" duration="13389000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71558000" />
+    <option name="totallyTimeSpent" value="85956000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.50292826" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.50292826" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -438,6 +481,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24450952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -450,7 +494,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,7 +507,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/assets/css/font-awesome.min.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/assets/css/main.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/assets/css/ie9.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/assets/css/ie8.css" />
@@ -614,16 +656,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/restcontrollers/kleptomaniaAPIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="54" column="4" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -631,6 +664,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="12" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -695,49 +729,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/teamSelection.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/restcontrollers/kleptomaniaAPIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/prueba.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="55" column="34" lean-forward="false" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="67" column="34" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
+        <state relative-caret-position="992">
           <caret line="162" column="18" lean-forward="false" selection-start-line="162" selection-start-column="18" selection-end-line="162" selection-end-column="18" />
           <folding />
         </state>
@@ -745,16 +747,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="163" column="41" lean-forward="true" selection-start-line="163" selection-start-column="41" selection-end-line="163" selection-end-column="41" />
+        <state relative-caret-position="-476">
+          <caret line="33" column="32" lean-forward="false" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/kleptomania.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="31" column="70" lean-forward="false" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/roomSelection.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="26" column="46" lean-forward="false" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+        <state relative-caret-position="-18">
+          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/teamSelection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/prueba.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="61" column="52" lean-forward="false" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="109" column="10" lean-forward="false" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
           <folding />
         </state>
       </provider>
