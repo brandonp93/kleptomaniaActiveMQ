@@ -4,51 +4,9 @@
     <list default="true" id="6f44b42a-a3dd-49b3-a3f9-f96101c4a1fd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/restcontrollers/kleptomaniaAPIController.java" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/restcontrollers/kleptomaniaAPIController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/Index/font-awesome.min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/Index/ie8.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/Index/ie9.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/Index/main.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/KleptomanGeneralStyles.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/FontAwesome.otf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.eot" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.woff2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/city.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/city1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/kleptomania.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/swat.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/thief.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/thief1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Index/ie/html5shiv.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Index/ie/respond.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Index/image.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Index/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Index/main.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/prueba.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/prueba.js" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/roomSelection.html" afterPath="$PROJECT_DIR$/src/main/resources/static/roomSelection.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/base/_bg.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/base/_page.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/base/_typography.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_button.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_form.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_icon.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_list.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_section.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/ie8.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/ie9.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/layout/_footer.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/layout/_header.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/layout/_signup-form.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/libs/_functions.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/libs/_mixins.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/libs/_skel.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/libs/_vars.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sass/Index/main.scss" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/teamSelection.html" afterPath="$PROJECT_DIR$/src/main/resources/static/teamSelection.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -74,19 +32,31 @@
       <file leaf-file-name="roomSelection.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/roomSelection.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+            <state relative-caret-position="731">
+              <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prueba.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="prueba.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/prueba.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="61" column="52" lean-forward="false" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
+            <state relative-caret-position="493">
+              <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stompClient.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/stompClient.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,17 +65,17 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/teamSelection.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1">
-              <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+              <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kleptomaniaJoinController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="kleptomaniaJoinController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="109" column="10" lean-forward="false" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
+            <state relative-caret-position="475">
+              <caret line="75" column="9" lean-forward="false" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -114,7 +84,7 @@
       <file leaf-file-name="indexToRoom.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="33">
               <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="86" />
               <folding />
             </state>
@@ -137,8 +107,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -188,12 +158,13 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/js/Index/main.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/kleptomania.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/kleptomania.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/teamSelection.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/roomSelection.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/prueba.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/roomSelection.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/teamSelection.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/stompClient.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/prueba.js" />
       </list>
     </option>
   </component>
@@ -224,6 +195,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -311,8 +284,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -456,12 +427,13 @@
       <workItem from="1522186177513" duration="28206000" />
       <workItem from="1522248503340" duration="27520000" />
       <workItem from="1522278860651" duration="2657000" />
-      <workItem from="1522285816159" duration="13389000" />
+      <workItem from="1522285816159" duration="13690000" />
+      <workItem from="1522337700366" duration="7330000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85956000" />
+    <option name="totallyTimeSpent" value="93587000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -481,7 +453,6 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24450952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -494,6 +465,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +479,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/assets/css/main.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/assets/css/ie9.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/assets/css/ie8.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/assets/js/main.js" />
@@ -516,98 +487,19 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/assetsIndex/css/font-awesome.min.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/assetsIndex/js/main.js" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/assetsIndex/css/main.css" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/ie/respond.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="140" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="140" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/ie/html5shiv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/ie9.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/ie8.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_icon.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_section.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-573">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/base/_bg.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-709">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/base/_page.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-709">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_button.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/Index/ie9.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/Index/ie8.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/Index/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/ie/respond.min.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/ie/html5shiv.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/ie9.scss" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/ie8.scss" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_icon.scss" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_section.scss" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/base/_bg.scss" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/base/_page.scss" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_button.scss" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/Index/ie9.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/Index/ie8.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/Index/font-awesome.min.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/main.scss" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -616,13 +508,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_form.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="136" column="24" lean-forward="false" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/sass/Index/components/_form.scss" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/play.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -645,18 +531,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/static/css/Index/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="1094" column="5" lean-forward="true" selection-start-line="1094" selection-start-column="5" selection-end-line="1094" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/static/css/Index/main.css" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/services/kleptomaniaServicesStub.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,7 +543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="12" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -675,13 +553,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/image.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="73" column="8" lean-forward="false" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/image.js" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/services/kleptomaniaServices.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -721,14 +593,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/roomToTeam.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/Index/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="42" column="33" lean-forward="false" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/Index/main.css" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/eci/arsw/kleptomania/restcontrollers/kleptomaniaAPIController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -737,22 +602,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="992">
-          <caret line="162" column="18" lean-forward="false" selection-start-line="162" selection-start-column="18" selection-end-line="162" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="33" column="32" lean-forward="false" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/index.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/Index/main.js" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/kleptomania.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -771,8 +622,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/roomSelection.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        <state relative-caret-position="731">
+          <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="86" />
           <folding />
         </state>
       </provider>
@@ -780,31 +639,33 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/teamSelection.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
-          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/indexToRoom.js">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/stompClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="86" />
+        <state relative-caret-position="323">
+          <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="75" column="9" lean-forward="false" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/prueba.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="61" column="52" lean-forward="false" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/kleptomaniaJoinController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="109" column="10" lean-forward="false" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
+        <state relative-caret-position="493">
+          <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
           <folding />
         </state>
       </provider>

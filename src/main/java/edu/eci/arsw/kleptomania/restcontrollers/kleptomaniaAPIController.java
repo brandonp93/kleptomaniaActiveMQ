@@ -65,7 +65,7 @@ public class kleptomaniaAPIController {
     public ResponseEntity<?> addThief(@PathVariable("room") String roomNumber,@RequestBody Player player) throws kleptomaniaServicesException {
            
             try {       
-                System.out.println("Player: "+ player.getNickname());
+                System.out.println("PUT Player: "+ player.getNickname());
                 services.addThief(Integer.parseInt(roomNumber), player);
                 msgt.convertAndSend("/topic/currentPlayers." + roomNumber,services.getThieves(Integer.parseInt(roomNumber)));     
             } catch (kleptomaniaServicesException ex) {
@@ -86,6 +86,7 @@ public class kleptomaniaAPIController {
                 }
                 else{
                     services.addRoom(r.getRoomNumber(),r);
+                    msgt.convertAndSend("/topic/currentRooms.",services.getCurrentRooms());
                 }
                 
             }

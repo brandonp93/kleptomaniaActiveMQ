@@ -71,6 +71,9 @@ var nickname;
     function showCurrentRooms(rooms) {
         var table = document.getElementById("currentRooms");
         var row = table.insertRow(table.length);
+        while (table.firstChild) {
+            table.removeChild(table.firstChild);
+        }
         for (var i in rooms){
             console.log("i: " + rooms[i])
             var tr = document.createElement("tr");
@@ -113,3 +116,7 @@ var nickname;
 
 
 
+$( document ).ready(function() {
+    console.log( "ready! to start room Conecct" );
+    roomsConnect();
+});
