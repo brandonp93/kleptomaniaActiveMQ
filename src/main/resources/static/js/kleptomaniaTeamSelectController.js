@@ -8,6 +8,13 @@ var TeamControllerModule = (function () {
         while (table.firstChild) {
             table.removeChild(table.firstChild);
         }
+        var tr0 = document.createElement("tr");
+        var th = document.createElement("th");
+        var h3 = document.createElement("h3");
+        h3.appendChild(document.createTextNode('Players'));
+        th.appendChild(h3);
+        tr0.appendChild(th);
+        table.appendChild(tr0);
         for (var i in players){
             console.log("i: " + players[i])
             var tr = document.createElement("tr");
