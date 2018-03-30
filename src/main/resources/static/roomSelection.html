@@ -4,46 +4,65 @@
     <title>Kleptomania</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
+    <link rel="stylesheet" href="index/css/main.css" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="index/css/ie8.css"/><![endif]-->
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="index/css/ie9.css"/><![endif]-->
 </head>
-<body onload="getRooms()">
-<!-- Logo -->
+<body onload="RoomControllerModule.loadRooms()" s>
+    <!-- Logo -->
+    <div class="divImage">
+        <img src="images/kleptomania.png">
+    </div>
 
+    <!-- Enter your name -->
+    <div id="div">
+        <div class="myDivRoom">
+            <h4 class="nameType">Wanna play with your friends? </h4>
+            <input type="text" id="nickname1" placeholder="New Room"/>
+            <input type="submit" value="New Room" onclick="RedirectControllerModule().redirectTeam()" />
+        </div>
+    </div>
 
-<!-- Enter your name -->
-<div id="div" class="div0">
-    <h4>Enter your name</h4>
+    <!-- How to Play -->
 
-        <input type="text" id="nickname1" placeholder="New Room"/>
-        <button onclick="redirectTeam()" > Join </button>
+    <div class="div1">
+        <table id="currentRooms" class="blueTable" >
+            <tr>
+                <th>ROOM</th>
+                <th>NAME</th>
+            </tr>
 
-</div>
+        </table>
+    </div>
 
-<!-- How to Play -->
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Kleptomania.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
 
-<div class="div1">
-    <table id="currentRooms">
-        <tr>
-            <th>ROOM</th>
-            <th>NAME</th>
-        </tr>
-        <tr>
-            <td> 2 </td>
-            <td> Prueba</td>
-        </tr>
-    </table>
-</div>
-
-
-<!-- Scripts -->
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/webjars/jquery/jquery.min.js"></script>
-<script src="/webjars/jquery/jquery.min.js"></script>
-<script src="/webjars/sockjs-client/sockjs.min.js"></script>
-<script src="/webjars/stomp-websocket/stomp.min.js"></script>
-<script src="js/stompClient.js"></script>
-<script src="js/indexToRoom.js"></script>
-<script src="js/kleptomaniaJoinController.js"></script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/kleptomaniaRedirectController.js"></script>
+    <script src="js/kleptomaniaRoomController.js"></script>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="index/js/main.js"></script>
+    <!--script src="js/stompClient.js"></script>
+    <script src="js/indexToRoom.js"></script>
+    <script src="js/kleptomaniaJoinController.js"></script-->
+    <script src="js/kleptomaniaRestController.js"></script>
 
 
 </body>

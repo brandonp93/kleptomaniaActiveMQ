@@ -4,32 +4,49 @@
     <meta charset="UTF-8">
     <title>Kleptomania Team</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
+    <link rel="stylesheet" href="index/css/main.css" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="index/css/ie8.css"/><![endif]-->
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="index/css/ie9.css"/><![endif]-->
 </head>
-<body>
+<body onload="TeamControllerModule.loadingCurrentPlayers()">
     <!-- Logo -->
 
-        <div id="div"></div>
-    <!-- Teams -->
-        <div id="divThieves">
-            <h3>PLAYERS</h3>
-            <table id="currentPlayers">
-                <tr>
-                    <th>NAME</th>
-                </tr>
-                <tr>
-                    <td> Prueba</td>
-                </tr>
-            </table>
-        </div>
+    <div class="divImage">
+        <img src="images/kleptomania.png">
+    </div>
+
+    <!-- Map -->
+    <div id="divTeam">
+        <h4 class="mapName">Map Name</h4>
+        <img src="images/dark.jpg" class="mapImage" >
+
+    </div>
+        <!-- Teams -->
+            <div id="divThieves">
+
+                <table id="currentPlayers" class="teamTable">
+                    <tr>
+                        <th><h3>PLAYERS</h3></th>
+                    </tr>
+                    <tr>
+                        <td> Prueba</td>
+                    </tr>
+                </table>
+            </div>
 
     <!-- Scripts -->
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="js/kleptomaniaRedirectController.js"></script>
+        <script src="js/kleptomaniaTeamSelectController.js"></script>
         <script src="/webjars/jquery/jquery.min.js"></script>
         <script src="/webjars/sockjs-client/sockjs.min.js"></script>
         <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-        <script src="js/stompClient.js"></script>
-        <script src="js/prueba.js"></script>
+        <!--script src="js/stompClient.js"></script>
+        <script src="js/prueba.js"></script-->
+        <script src="js/kleptomaniaRestController.js"></script>
+        <script src="index/js/main.js"></script>
 
 </body>
 </html>

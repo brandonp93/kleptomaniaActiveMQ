@@ -46,7 +46,7 @@ public class kleptomaniaAPIController {
                     return new ResponseEntity<>(services.getCurrentRooms(),HttpStatus.ACCEPTED);
             } catch (kleptomaniaServicesException ex) {
                     Logger.getLogger(kleptomaniaServicesException.class.getName()).log(Level.SEVERE, null, ex);
-                    return new ResponseEntity<>("Error GGEEEET " + ex,HttpStatus.NOT_FOUND);
+                    return new ResponseEntity<>("There are no rooms: " + ex,HttpStatus.NOT_FOUND);
             }  
         } 
     
@@ -57,7 +57,7 @@ public class kleptomaniaAPIController {
                     return new ResponseEntity<>(services.getThieves(Integer.parseInt(roomNumber)),HttpStatus.ACCEPTED);
             } catch (kleptomaniaServicesException ex) {
                     Logger.getLogger(kleptomaniaServicesException.class.getName()).log(Level.SEVERE, null, ex);
-                    return new ResponseEntity<>("Error GGEEEET" + ex,HttpStatus.NOT_FOUND);
+                    return new ResponseEntity<>("There are no thieves in this room: " + ex,HttpStatus.NOT_FOUND);
             }  
         } 
 
@@ -70,7 +70,7 @@ public class kleptomaniaAPIController {
                 msgt.convertAndSend("/topic/currentPlayers." + roomNumber,services.getThieves(Integer.parseInt(roomNumber)));     
             } catch (kleptomaniaServicesException ex) {
                 Logger.getLogger(kleptomaniaAPIController.class.getName()).log(Level.SEVERE, null, ex);
-                return new ResponseEntity<>("ERRRROR PUT ",HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("We've a problem joining a new thief: ",HttpStatus.BAD_REQUEST);
             }
             return new ResponseEntity<>(HttpStatus.CREATED);
         
@@ -92,7 +92,7 @@ public class kleptomaniaAPIController {
             }
             catch(kleptomaniaServicesException ex){
                 Logger.getLogger(kleptomaniaAPIController.class.getName()).log(Level.SEVERE, null, ex);
-                return new ResponseEntity<>("Somenthing went wrong: POST METHOD ",HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("Somenthing went wrong creating a new Room: POST METHOD ",HttpStatus.BAD_REQUEST);
             }
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
