@@ -1,31 +1,61 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
+<!DOCTYPE HTML>
 
 <html>
-    <head>
-        <title>Unirse a la partida</title>
-        <meta charset="windows-1252">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="Css/KleptomanGeneralStyles.css" rel="stylesheet">
-    </head>
-    <body>
-    <center>
-        <div class="centerDiv">
-            <h1>Ingresar Nombre de Usuario</h1>
-            <br/>
-            <a>Ingrese su nombre: </a><input id="nick" type="text" name="User Name">
-            <br/>
-            <br/>
-            <button id="addUser" value="Unirse" onclick="registerUser()">Unirse a la partida</button>
+	<head>
+		<title>Kleptomania</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <!--[if lte IE 8]>
+        <script src="index/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="index/css/main.css" />
+        <!--[if lte IE 8]>
+        <link rel="stylesheet" href="index/css/ie8.css"/><![endif]-->
+        <!--[if lte IE 9]>
+        <link rel="stylesheet" href="index/css/ie9.css"/><![endif]-->
+	</head>
+	<body>
+		<!-- Logo -->
+        <div class="divImage">
+            <img src="images/kleptomania.png">
         </div>
-    </center>
-    <!-- Add the scripts-->
-    <script src="Js/KleptomaniacController.js"></script>
-    </body>
-    
+
+		<!-- Enter your name -->
+		<div id="div">
+            <div class="myDiv">
+			<h4 class="nameType">Enter your new nickname</h4>
+				<input type="text" name="Nickname"  id="nickname" placeholder="Nickname" required="required" pattern="[A-Za-z0-9]{1,20}"/>
+                <input type="submit" value="Join" onclick="RedirectControllerModule().redirectLobby()" />
+            </div>
+
+		</div>
+
+        <!-- How to Play -->
+
+        <div>
+            <h1 class="howTo">How to play</h1>
+            <p> Insertar instrucciones :v</p>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Kleptomania.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </footer>
+
+
+		<!-- Scripts -->
+			<script src="js/kleptomaniaRedirectController.js"></script>
+            <script src="index/js/main.js"></script>
+            <!--script src="/webjars/jquery/jquery.min.js"></script-->
+			<!--script src="js/indexToRoom.js"></script-->
+
+
+	</body>
 </html>
