@@ -26,7 +26,6 @@ var TeamControllerModule = (function () {
     };
 
     var connect = function (lobby) {
-        console.log("CONEECT PAPU cpnnect para palyers: " + lobby);
         var socket = new SockJS('/stompendpoint');
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
