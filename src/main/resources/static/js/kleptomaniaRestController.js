@@ -15,7 +15,6 @@ var RestControllerModule = (function () {
     };
 
     var getRooms = function (){
-        console.log('Ejecutando---------');
         axios.get('/lobby').then(function (response) {
             console.log(response);
             rooms = response['data'];
@@ -26,7 +25,6 @@ var RestControllerModule = (function () {
     };
 
     var joining = function (roomNumber){
-        console.log("Entre al puto put " + roomNumber);
         axios({
             method: 'put',
             url: 'lobby/'+roomNumber+'/thief',
@@ -39,7 +37,6 @@ var RestControllerModule = (function () {
     };
 
     var getCurrentPlayers =  function (lobby) {
-        console.log("GET CUREEN players prueba PAPU: " +lobby );
         axios.get('/lobby/'+lobby+'/thief').then(function (response) {
             console.log(response);
             console.log("Get current players respuesta: " +response['data']);
