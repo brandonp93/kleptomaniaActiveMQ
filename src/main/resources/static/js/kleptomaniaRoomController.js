@@ -33,8 +33,6 @@ var RoomControllerModule = (function () {
     };
 
     var goToRoom = function (roomNumber) {
-        console.log('Lo lograste papu: ' + roomNumber.innerText);
-        console.log('Probando nickname: ' + sessionStorage.getItem('nickname'));
         invitedRoom = roomNumber.innerText;
         sessionStorage.setItem('invitedRoom', invitedRoom);
         RestControllerModule.joining(roomNumber.innerText);
@@ -43,7 +41,6 @@ var RoomControllerModule = (function () {
     };
 
     var roomsConnect = function (){
-        console.log("CONEECT PAPU");
         var socket = new SockJS('/stompendpoint');
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
