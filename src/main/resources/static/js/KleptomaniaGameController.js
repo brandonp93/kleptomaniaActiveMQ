@@ -42,12 +42,10 @@ var GameModelModule = (function () {
 
     //structure world vars 
     var Background;
-    var House1;
-    var House2;
-    var House3;
     var Prision;
     var Obstacle;
     var Trap;
+    var houses=[];
 
     //Util var
     var animationType = 0;
@@ -69,19 +67,37 @@ var GameModelModule = (function () {
             .add("spritesheet","../images/Spritesheet.json")
             .load( function () {
                 //load the structures
-                Background = new Sprite(resources.spritesheet.textures["back.png"]);
+                Background = new Sprite(resources.spritesheet.textures["background.png"]);
                 Background.scale.x = 1.0;
                 Background.scale.y = 1.0;
                 Background.x=0;
                 Background.y=0;
-                Background.visible = false;
+                Background.visible = true;
                 app.stage.addChild(Background);
                 //load Houses
-                House1 = new Sprite(resources.spritesheet.textures["h1.png"]);
-                House1.sacle.x = 0.3;
-                House1.scale.y = 0.3;
-                House1.visible = false;
-                app.stage.addChild(House1);
+                var a = screen.width/4;
+                var b = screen.height/4;
+                var xs = [50,a,a*2,a*3];
+                var ys = [10,b,b*2,b*3];
+                var c = 0;
+                var d = 0;
+                for (i=0; i<16; i++){
+                    console.log("ciclo: "+i+" posicion: "+d+":"+c);
+                    var House = new Sprite(resources.spritesheet.textures["house"+Math.floor((Math.random() * 3) + 1)+".png"]);
+                    House.scale.x = 0.5;
+                    House.scale.y = 0.5;
+                    House.x = xs[d];
+                    House.y = ys[c];  
+                    House.visible = true;
+                    houses.append(House);
+                    app.stage.addChild(House);
+                    if (d==3){
+                        c+=1;
+                        d=0;
+                    }else{
+                        d+=1;
+                    } 
+                }
 
                 //set the image of the police to right
                 PRStatic = new Sprite(resources.spritesheet.textures["PRStatic.png"]);
@@ -365,6 +381,16 @@ var GameModelModule = (function () {
     function gameLoop(delta) {
         state(delta);
     }
+    
+    function collision(sprite){
+        var collited = false;
+        var i = 0;
+        while (i<houses.length && !collited){
+            collited = hitTestRectangle(sprite, houses[i]);
+            i+=1;
+        }
+    }
+    
     function play() {
         model.thisxpos += model.thisvx;
         model.thisypos += model.thisvy;
