@@ -82,14 +82,13 @@ var GameModelModule = (function () {
                 var c = 0;
                 var d = 0;
                 for (i=0; i<16; i++){
-                    console.log("ciclo: "+i+" posicion: "+d+":"+c);
                     var House = new Sprite(resources.spritesheet.textures["house"+Math.floor((Math.random() * 3) + 1)+".png"]);
                     House.scale.x = 0.5;
                     House.scale.y = 0.5;
                     House.x = xs[d];
                     House.y = ys[c];  
                     House.visible = true;
-                    houses.append(House);
+                    houses.push(House);
                     app.stage.addChild(House);
                     if (d==3){
                         c+=1;
