@@ -40,6 +40,15 @@ var GameModelModule = (function () {
     var TLeftAnim;
     var TRightAnim;
 
+    //structure world vars 
+    var Background;
+    var House1;
+    var House2;
+    var House3;
+    var Prision;
+    var Obstacle;
+    var Trap;
+
     //Util var
     var animationType = 0;
     var animationDir;
@@ -59,46 +68,71 @@ var GameModelModule = (function () {
         loader
             .add("spritesheet","../images/Spritesheet.json")
             .load( function () {
+                //load the structures
+                Background = new Sprite(resources.spritesheet.textures["back.png"]);
+                Background.scale.x = 1.0;
+                Background.scale.y = 1.0;
+                Background.x=0;
+                Background.y=0;
+                Background.visible = false;
+                app.stage.addChild(Background);
+                //load Houses
+                House1 = new Sprite(resources.spritesheet.textures["h1.png"]);
+                House1.sacle.x = 0.3;
+                House1.scale.y = 0.3;
+                House1.visible = false;
+                app.stage.addChild(House1);
+
+                //set the image of the police to right
                 PRStatic = new Sprite(resources.spritesheet.textures["PRStatic.png"]);
                 PRStatic.scale.x = 0.3;
                 PRStatic.scale.y = 0.3;
                 PRStatic.visible = false;
                 app.stage.addChild(PRStatic);
+                //set the image of the police to left
                 PLStatic = new Sprite(resources.spritesheet.textures["PLStatic.png"]);
                 PLStatic.scale.x = 0.3;
                 PLStatic.scale.y = 0.3;
                 PLStatic.visible = false;
                 app.stage.addChild(PLStatic);
+                //set the image of the police to up
                 PUStatic = new Sprite(resources.spritesheet.textures["PUStatic.png"]);
                 PUStatic.scale.x = 0.3;
                 PUStatic.scale.y = 0.3;
                 PUStatic.visible = false;
                 app.stage.addChild(PUStatic);
+                //set the image of the police to down
                 PDStatic = new Sprite(resources.spritesheet.textures["PDStatic.png"]);
                 PDStatic.scale.x = 0.3;
                 PDStatic.scale.y = 0.3;
                 PDStatic.visible = false;
                 app.stage.addChild(PDStatic);
+                //set the image of the thieft to right
                 TRStatic = new Sprite(resources.spritesheet.textures["TRStatic.png"]);
                 TRStatic.scale.x = 0.3;
                 TRStatic.scale.y = 0.3;
                 TRStatic.visible = false;
                 app.stage.addChild(TRStatic);
+                //set the image of the thieft to left
                 TLStatic = new Sprite(resources.spritesheet.textures["TLStatic.png"]);
                 TLStatic.scale.x = 0.3;
                 TLStatic.scale.y = 0.3;
                 TLStatic.visible = false;
                 app.stage.addChild(TLStatic);
+                //set the image of the thieft to up
                 TUStatic = new Sprite(resources.spritesheet.textures["TUStatic.png"]);
                 TUStatic.scale.x = 0.3;
                 TUStatic.scale.y = 0.3;
                 TUStatic.visible = false;
                 app.stage.addChild(TUStatic);
+                //set the image of the thieft to down
                 TDStatic = new Sprite(resources.spritesheet.textures["TDStatic.png"]);
                 TDStatic.scale.x = 0.3;
                 TDStatic.scale.y = 0.3;
                 TDStatic.visible = false;
                 app.stage.addChild(TDStatic);
+
+                //Load the resources of the world
                 Diamond = new Sprite(resources.spritesheet.textures["Diamond.png"]);
                 Diamond.visible = false;
                 Diamond.scale.x = 0.3;
@@ -114,6 +148,7 @@ var GameModelModule = (function () {
                 Gold.scale.y = 0.3;
                 Gold.visible = false;
                 app.stage.addChild(Gold);
+                
                 var frames = [];
                 frames.push(resources.spritesheet.textures["PUStatic.png"]);
                 frames.push(resources.spritesheet.textures["PUMov1.png"]);
