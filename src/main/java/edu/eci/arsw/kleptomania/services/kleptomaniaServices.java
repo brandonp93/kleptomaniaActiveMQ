@@ -27,4 +27,6 @@ public interface kleptomaniaServices {
     
     public CopyOnWriteArrayList<Room> getCurrentRooms() throws kleptomaniaServicesException;
 
+    public String getId (int roomNumber,String nickname) throws kleptomaniaServicesException;
+
 }

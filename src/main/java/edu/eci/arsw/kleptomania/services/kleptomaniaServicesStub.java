@@ -32,7 +32,14 @@ public class kleptomaniaServicesStub implements kleptomaniaServices{
            throw new kleptomaniaServicesException("This player have been joined already " + player);
         }*/
         players.get(roomNumber).add(player);  
+        int a = 64+players.get(roomNumber).size();
+        System.out.println("Prueba print");
+        String nickname = player.getNickname();
+        System.out.println("identification: " + a + " p: " + nickname );   
+        player.setIdentification(Character.toString ((char) a));
+        
     }
+
 
     @Override
     public void addCops(int roomNumber, Player p) throws kleptomaniaServicesException {
@@ -62,13 +69,20 @@ public class kleptomaniaServicesStub implements kleptomaniaServices{
         } else {
             rooms.put(roomNumber,r);
             CopyOnWriteArrayList<Player> temp = new CopyOnWriteArrayList();
-            temp.add(r.getHost());
+            Player firstPlayer = r.getHost();
+            
+            int a = 65;
+            String nickname = firstPlayer.getNickname();
+            System.out.println("identification: " + a + " p: " + nickname );   
+            firstPlayer.setIdentification(Character.toString ((char) a));
+            
+            temp.add(firstPlayer);
             players.put(roomNumber,temp);
             for(Integer p: players.keySet()){
                 String key =p.toString();
                 CopyOnWriteArrayList<Player> value = players.get(p);  
                 for(Player u: value){
-                    System.out.println(key + " " + u.getNickname() );  
+                    System.out.println(key + " " + u.getNickname() + " aca");  
                 }
                 
             }
@@ -89,5 +103,18 @@ public class kleptomaniaServicesStub implements kleptomaniaServices{
             throw new kleptomaniaServicesException("There are no rooms");
         }
     }
-   
+
+    @Override
+    public String getId(int roomNumber, String nickname) throws kleptomaniaServicesException{
+        CopyOnWriteArrayList<Player> currentRoomPlayers = players.get(roomNumber);
+        String id = null;
+        for (Player p : currentRoomPlayers) {
+            if(p.getNickname().contentEquals(nickname)){
+                id = p.getIdentification();
+            }
+        }
+        return id;
+
+    }
+
 }

@@ -36,6 +36,7 @@ var RestControllerModule = (function () {
             });
     };
 
+
     var getCurrentPlayers =  function (lobby) {
         axios.get('/lobby/'+lobby+'/thief').then(function (response) {
             console.log(response);
@@ -47,10 +48,23 @@ var RestControllerModule = (function () {
 
     }
 
+    var getPlayerId = function (lobby,nickname) {
+        console.log("Imprimiendo el nickname que llega por parametro: ", nickname);
+        console.log("Imprimiendo el lobby que llega por parametro: ", lobby);
+        axios.get('/lobby/'+lobby+'/'+nickname).then(function (response) {
+            console.log(response);
+            console.log("Se deberia imprimir la letra con creatingposition")
+            GameModelModule.creatingPosition(response['data']);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+
     return {
         newLobby: newLobby,
         getRooms: getRooms,
         joining: joining,
+        getPlayerId: getPlayerId,
         getCurrentPlayers: getCurrentPlayers
     };
 

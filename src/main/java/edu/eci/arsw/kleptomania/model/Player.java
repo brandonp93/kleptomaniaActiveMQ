@@ -34,5 +34,9 @@ public class Player {
         this.nickname = nickname;
     }
     
+    @Override
+    public String toString() {
+        return "Player{" + "nickname=" + nickname + ", identification=" + identification+ '}';
+    }
     
 }

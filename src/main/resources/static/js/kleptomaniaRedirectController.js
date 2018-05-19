@@ -19,9 +19,12 @@ var RedirectControllerModule = (function () {
                 //console.log(rooms);
             }
             else {
-                RestControllerModule.newLobby();
+
                 console.log("Sala(var nickname1) Redirect: " + nickname1);
+
                 sessionStorage.setItem('nickname1', document.getElementById('nickname1').value);
+
+                RestControllerModule.newLobby();
                 document.location.href = "teamSelection.html";
             }
     };

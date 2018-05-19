@@ -47,9 +47,12 @@ public class kleptomaniaAPIController {
             } catch (kleptomaniaServicesException ex) {
                     Logger.getLogger(kleptomaniaServicesException.class.getName()).log(Level.SEVERE, null, ex);
                     return new ResponseEntity<>("There are no rooms: " + ex,HttpStatus.NOT_FOUND);
-            }  
-        } 
-    
+            }
+
+
+        }
+  
+
     @RequestMapping(path = "/{roomNumber}/thief", method = RequestMethod.GET)
         public ResponseEntity<?> controllerGetThievesRoom(@PathVariable String roomNumber) throws kleptomaniaServicesException{
             try {
@@ -59,11 +62,10 @@ public class kleptomaniaAPIController {
                     Logger.getLogger(kleptomaniaServicesException.class.getName()).log(Level.SEVERE, null, ex);
                     return new ResponseEntity<>("There are no thieves in this room: " + ex,HttpStatus.NOT_FOUND);
             }  
-        } 
+    } 
 
     @RequestMapping(path = "/{room}/thief",method = RequestMethod.PUT)
-    public ResponseEntity<?> addThief(@PathVariable("room") String roomNumber,@RequestBody Player player) throws kleptomaniaServicesException {
-           
+    public ResponseEntity<?> addThief(@PathVariable("room") String roomNumber,@RequestBody Player player) throws kleptomaniaServicesException {      
             try {       
                 System.out.println("PUT Player: "+ player.getNickname());
                 services.addThief(Integer.parseInt(roomNumber), player);
@@ -72,9 +74,9 @@ public class kleptomaniaAPIController {
                 Logger.getLogger(kleptomaniaAPIController.class.getName()).log(Level.SEVERE, null, ex);
                 return new ResponseEntity<>("We've a problem joining a new thief: ",HttpStatus.BAD_REQUEST);
             }
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        
+            return new ResponseEntity<>(HttpStatus.CREATED); 
     }
+
     
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> controllerPostRoom(@RequestBody Room r) throws kleptomaniaServicesException {
@@ -97,5 +99,18 @@ public class kleptomaniaAPIController {
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
     }
+    
+    @RequestMapping(path = "/{roomNumber}/{nickname}", method = RequestMethod.GET)
+        public ResponseEntity<?> controllerGetId(@PathVariable String roomNumber,@PathVariable String nickname) throws kleptomaniaServicesException{
+            try {
+                    //obtener datos que se enviarán a través del API
+                    String id = services.getId(Integer.parseInt(roomNumber),nickname);
+                    System.out.println("Nickname: " + nickname + " Id: " + id);
+                    return new ResponseEntity<>(services.getId(Integer.parseInt(roomNumber),nickname),HttpStatus.ACCEPTED);
+            } catch (kleptomaniaServicesException ex) {
+                    Logger.getLogger(kleptomaniaServicesException.class.getName()).log(Level.SEVERE, null, ex);
+                    return new ResponseEntity<>("There are no thieves in this room: " + ex,HttpStatus.NOT_FOUND);
+            }  
+    } 
     
 }

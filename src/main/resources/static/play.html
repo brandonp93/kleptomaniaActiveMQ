@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="css/Kleptomania.css">
 </head>
 
-<body>
+<body onload="GameModelModule.playing()">
+    <canvas id="gameCanvas">
+
+    </canvas>
     <!-- Scripts -->
     <script src="js/pixi.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

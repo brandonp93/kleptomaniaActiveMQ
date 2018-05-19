@@ -1,3 +1,4 @@
+
 var model = {
     thisxpos:0,
     thisypos:0,
@@ -7,6 +8,8 @@ var model = {
     loadedObjects:[],
     loadedThiefs:[]
 };
+
+var stompClient = null;
 
 var GameModelModule = (function () {
     //Alias
@@ -53,16 +56,17 @@ var GameModelModule = (function () {
     var SpriteAct;
 
     //Initial setup
-    var setupPixiApp = function () {
+    var setupPixiApp = function (lobby) {
         window.addEventListener("resize", function() {
             app.renderer.resize(window.innerWidth, window.innerHeight);
         });
         app = new Application(window.innerWidth, window.innerHeight, {resolution:1});
         document.body.appendChild(app.view);
-        loadSprites();
+        loadSprites(lobby);
+        
     };
 
-    var loadSprites = function () {
+    var loadSprites = function (lobby) {
         loader
             .add("spritesheet","../images/Spritesheet.json")
             .load( function () {
@@ -260,13 +264,16 @@ var GameModelModule = (function () {
                 TLeftAnim.play();
                 TLeftAnim.visible = false;
                 app.stage.addChild(TLeftAnim);
-                init();
+                stompClient.send('/topic/gameThieves.'+lobby, {},{});
             });
     };
 
+
     function init() {
-        model.thisxpos = (Math.random() * 300) + 1;
-        model.thisypos = (Math.random() * 300) + 1;
+        //model.thisxpos = (Math.random() * 300) + 1;
+        //model.thisypos = (Math.random() * 300) + 1;
+        model.thisxpos = 300;
+        model.thisypos = 300;
         SpriteAct=TDStatic;
         SpriteAct.x = model.thisxpos;
         SpriteAct.y = model.thisypos;
@@ -410,7 +417,68 @@ var GameModelModule = (function () {
         SpriteAct.visible = true;
     }
 
+
+
+    var playing = function () {
+        
+        var nickname = sessionStorage.getItem('nickname');
+        var nickname1 = sessionStorage.getItem('nickname1');
+        if(nickname1!=null){           
+            console.log("Entro al if");  
+            console.log("Funcion playing nickname: "+nickname);
+            console.log("Funcion playing lobby: "+nickname1);
+            connect(nickname1);
+            RestControllerModule.getPlayerId(nickname1,nickname);
+            
+        }
+        else{
+            console.log("Entro al else");
+            var invitedRoom = sessionStorage.getItem('invitedRoom');
+            console.log("Funcion playing nickname: "+nickname);
+            console.log("Funcion playing lobby: "+invitedRoom);
+            connect(invitedRoom);
+            RestControllerModule.getPlayerId(invitedRoom,nickname);
+        }   
+    }
+
+    //Aqui deberia ir la posición de inicio según la letra que ya asigno el servidor( ya la asigna)
+    var creatingPosition = function (spawnChar) {
+        console.log("Spawn Char: " + spawnChar);
+        if(spawnChar === spawnChar.toUpperCase()){
+            if(spawnChar === 'A'){
+                console.log("spawnChar is A");
+                model.thisxpos = 300;
+                model.thisypos = 300;
+            }
+            else if (spawnChar === 'B'){
+                console.log("spawnChar is B");
+                model.thisxpos = 500;
+                model.thisypos = 500;
+            }
+        }
+    }
+
+    var connect = function (lobby) {
+        var socket = new SockJS('/stompendpoint');
+        var nickname = sessionStorage.getItem('nickname');
+        console.log("nickname: ",nickname);
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            console.log('Connected: ' + frame);
+            stompClient.subscribe('/topic/gameThieves.'+lobby, function (data) {
+                init();
+            });
+            stompClient.subscribe('/topic/end.', function () {
+
+            });
+            setupPixiApp(lobby);
+        });
+       
+    }
+
+
     return {
-        setupApp: setupPixiApp
+        playing: playing,
+        creatingPosition: creatingPosition
+
     }})();
-GameModelModule.setupApp();
