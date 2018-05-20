@@ -59,13 +59,36 @@ var RestControllerModule = (function () {
             console.log(error);
         });
     }
-
+    
+    var deleteEverything = function () {
+    // todo implement
+        axios.delete('/lobby').then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+    var getLadrones = function () {
+        axios.get('/lobby').then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+    var getPolicias = function () {
+        
+    }
     return {
         newLobby: newLobby,
         getRooms: getRooms,
-        joining: joining,
+        joining: joining,      
         getPlayerId: getPlayerId,
-        getCurrentPlayers: getCurrentPlayers
+        getCurrentPlayers: getCurrentPlayers,
+        deleteEverything: deleteEverything,
+        getLadrones: getLadrones,
+        getPolicias: getPolicias
     };
 
 })();

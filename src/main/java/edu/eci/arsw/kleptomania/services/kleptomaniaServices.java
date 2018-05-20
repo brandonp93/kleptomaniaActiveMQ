@@ -23,12 +23,15 @@ public interface kleptomaniaServices {
 
     public List<Player> getThieves(int roomNumber) throws kleptomaniaServicesException;
 
-    public List<Player> getCops(int roomNumber) throws kleptomaniaServicesException;
+    public List<Player> getPolicias(int roomNumber) throws kleptomaniaServicesException;
+    
+    public List<Player> getLadrones(int roomNumber) throws kleptomaniaServicesException;
     
     public CopyOnWriteArrayList<Room> getCurrentRooms() throws kleptomaniaServicesException;
 
     public String getId (int roomNumber,String nickname) throws kleptomaniaServicesException;
     
     public void changeTeam(int roomNumber,String nickname) throws kleptomaniaServicesException;
-
+        
+    public void obliterate () throws kleptomaniaServicesException;
 }

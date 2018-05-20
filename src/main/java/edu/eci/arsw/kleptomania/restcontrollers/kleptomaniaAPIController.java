@@ -60,7 +60,7 @@ public class kleptomaniaAPIController {
                     return new ResponseEntity<>(services.getThieves(Integer.parseInt(roomNumber)),HttpStatus.ACCEPTED);
             } catch (kleptomaniaServicesException ex) {
                     Logger.getLogger(kleptomaniaServicesException.class.getName()).log(Level.SEVERE, null, ex);
-                    return new ResponseEntity<>("There are no thieves in this room: " + ex,HttpStatus.NOT_FOUND);
+                    return new ResponseEntity<>("There are no players in this room: " + ex,HttpStatus.NOT_FOUND);
             }  
     } 
 
@@ -109,8 +109,43 @@ public class kleptomaniaAPIController {
                     return new ResponseEntity<>(services.getId(Integer.parseInt(roomNumber),nickname),HttpStatus.ACCEPTED);
             } catch (kleptomaniaServicesException ex) {
                     Logger.getLogger(kleptomaniaServicesException.class.getName()).log(Level.SEVERE, null, ex);
+                    return new ResponseEntity<>("There's no id " + ex,HttpStatus.NOT_FOUND);
+            }  
+        } 
+        
+    @RequestMapping(method = RequestMethod.DELETE)	
+        public ResponseEntity<?> controllerDeleteEverything() throws kleptomaniaServicesException{
+            try {
+                    System.out.println("Service delete");
+                    services.obliterate();
+                    return new ResponseEntity<>(HttpStatus.ACCEPTED);
+            } catch (kleptomaniaServicesException ex) {
+                    Logger.getLogger(kleptomaniaServicesException.class.getName()).log(Level.SEVERE, null, ex);
+                    return new ResponseEntity<>("There's nothing to delete: " + ex,HttpStatus.NOT_FOUND);    
+            }        
+
+        }
+    
+        @RequestMapping(path = "/{roomNumber}/ladrones", method = RequestMethod.GET)
+        public ResponseEntity<?> controllerGetLadrones(@PathVariable String roomNumber) throws kleptomaniaServicesException{
+            try {
+                    //obtener datos que se enviarán a través del API                 
+                    return new ResponseEntity<>(services.getLadrones(Integer.parseInt(roomNumber)),HttpStatus.ACCEPTED);
+            } catch (kleptomaniaServicesException ex) {
+                    Logger.getLogger(kleptomaniaServicesException.class.getName()).log(Level.SEVERE, null, ex);
                     return new ResponseEntity<>("There are no thieves in this room: " + ex,HttpStatus.NOT_FOUND);
             }  
-    } 
+        } 
+        
+        @RequestMapping(path = "/{roomNumber}/policias", method = RequestMethod.GET)
+        public ResponseEntity<?> controllerGetPolicias (@PathVariable String roomNumber) throws kleptomaniaServicesException{
+            try {
+                    //obtener datos que se enviarán a través del API
+                    return new ResponseEntity<>(services.getPolicias(Integer.parseInt(roomNumber)),HttpStatus.ACCEPTED);
+            } catch (kleptomaniaServicesException ex) {
+                    Logger.getLogger(kleptomaniaServicesException.class.getName()).log(Level.SEVERE, null, ex);
+                    return new ResponseEntity<>("There are no cops in this room: " + ex,HttpStatus.NOT_FOUND);
+            }  
+        } 
     
 }

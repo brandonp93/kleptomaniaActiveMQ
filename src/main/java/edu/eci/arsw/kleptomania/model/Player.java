@@ -14,7 +14,45 @@ public class Player {
     String nickname;
     String identification;
     String team;
+    String thisxpos;
+    String thisypos;
+    String thisvx;
+    String thisvy;
 
+    public String getThisvx() {
+        return thisvx;
+    }
+
+    public void setThisvx(String thisvx) {
+        this.thisvx = thisvx;
+    }
+
+    public String getThisvy() {
+        return thisvy;
+    }
+
+    public void setThisvy(String thisvy) {
+        this.thisvy = thisvy;
+    }
+    
+    
+    public String getThisxpos() {
+        return thisxpos;
+    }
+
+    public void setThisxpos(String thisxpos) {
+        this.thisxpos = thisxpos;
+    }
+
+    public String getThisypos() {
+        return thisypos;
+    }
+
+    public void setThisypos(String thisypos) {
+        this.thisypos = thisypos;
+    }
+   
+    
     public String getTeam() {
         return team;
     }
@@ -23,8 +61,6 @@ public class Player {
         this.team = team;
     }
 
-    
-    
     public Player(){
     
     }
@@ -47,7 +83,7 @@ public class Player {
     
     @Override
     public String toString() {
-        return "Player{" + "nickname=" + nickname + ", identification=" + identification+ ", team=" + team +  '}';
+        return "Player{" + "nickname=" + nickname + ", identification=" + identification+ ", team=" + team + ", thisposx=" +  thisxpos + ", thisposy="+ thisypos + ", thisvx=" + thisvx + ", thisvy=" + thisvy +'}';
     }
     
 }

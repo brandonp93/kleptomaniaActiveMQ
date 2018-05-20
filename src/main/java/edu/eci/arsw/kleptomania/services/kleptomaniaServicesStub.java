@@ -69,10 +69,7 @@ public class kleptomaniaServicesStub implements kleptomaniaServices{
         
     };
 
-    @Override
-    public List<Player> getCops(int roomNumber) throws kleptomaniaServicesException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     @Override
     public void addRoom(int roomNumber, Room r) throws kleptomaniaServicesException {
@@ -161,6 +158,33 @@ public class kleptomaniaServicesStub implements kleptomaniaServices{
     private void deleteCop(int roomNumber, Player player) throws kleptomaniaServicesException {
         players.get(roomNumber).remove(player);
         cops.get(roomNumber).remove(player);
+    }
+
+    @Override
+    public void obliterate() throws kleptomaniaServicesException {
+        System.out.println("Cleaning Data.....");
+        players.clear();
+        cops.clear();
+        thieves.clear();
+    }
+
+    @Override
+    public List<Player> getPolicias(int roomNumber) throws kleptomaniaServicesException {
+        if(rooms.containsKey(roomNumber)){
+            return cops.get(roomNumber);
+        }
+        else{
+            throw new kleptomaniaServicesException("This room doesn't exist " + roomNumber);
+        }    }
+
+    @Override
+    public List<Player> getLadrones(int roomNumber) throws kleptomaniaServicesException {
+        if(rooms.containsKey(roomNumber)){
+            return thieves.get(roomNumber);
+        }
+        else{
+            throw new kleptomaniaServicesException("This room doesn't exist " + roomNumber);
+        }
     }
 
 }

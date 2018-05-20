@@ -1,12 +1,12 @@
-
+var sala;
 var model = {
+    nickname: null,
+    identification: null,
+    team: 'T',
     thisxpos:0,
     thisypos:0,
-    thisvx:0,
-    thisvy:0,
-    loadedPolices:[],
-    loadedObjects:[],
-    loadedThiefs:[]
+    thisvx: 0,
+    thisvy: 0
 };
 
 var stompClient = null;
@@ -58,9 +58,9 @@ var GameModelModule = (function () {
     //Initial setup
     var setupPixiApp = function (lobby) {
         window.addEventListener("resize", function() {
-            app.renderer.resize(window.innerWidth, window.innerHeight);
+            app.renderer.resize(1280, 720);
         });
-        app = new Application(window.innerWidth, window.innerHeight, {resolution:1});
+        app = new Application(1280, 720, {resolution:1});
         document.body.appendChild(app.view);
         loadSprites(lobby);
         
@@ -264,7 +264,7 @@ var GameModelModule = (function () {
                 TLeftAnim.play();
                 TLeftAnim.visible = false;
                 app.stage.addChild(TLeftAnim);
-                stompClient.send('/topic/gameThieves.'+lobby, {},{});
+                init();
             });
     };
 
@@ -272,8 +272,7 @@ var GameModelModule = (function () {
     function init() {
         //model.thisxpos = (Math.random() * 300) + 1;
         //model.thisypos = (Math.random() * 300) + 1;
-        model.thisxpos = 300;
-        model.thisypos = 300;
+
         SpriteAct=TDStatic;
         SpriteAct.x = model.thisxpos;
         SpriteAct.y = model.thisypos;
@@ -398,15 +397,22 @@ var GameModelModule = (function () {
     }
     
     function play() {
+        
         model.thisxpos += model.thisvx;
         model.thisypos += model.thisvy;
+        
+     
+        
         SpriteAct.visible = false;
         if(animationType == 0){
             if(animationDir == "l"){SpriteAct = TLStatic;}
             else if(animationDir == "u"){SpriteAct = TUStatic;}
             else if(animationDir == "d"){SpriteAct = TDStatic;}
             else if(animationDir == "r"){SpriteAct = TRStatic;}
+            
+            
         }else{
+            stompClient.send("/app/position."+sala, {}, JSON.stringify(model));
             if(animationDir == "l"){SpriteAct = TLeftAnim;}
             else if(animationDir == "u"){SpriteAct = TUpAnim;}
             else if(animationDir == "d"){SpriteAct = TDownAnim;}
@@ -421,14 +427,16 @@ var GameModelModule = (function () {
 
     var playing = function () {
         
-        var nickname = sessionStorage.getItem('nickname');
+        nickname = sessionStorage.getItem('nickname');
+        model.nickname = nickname;
         var nickname1 = sessionStorage.getItem('nickname1');
         if(nickname1!=null){           
             console.log("Entro al if");  
             console.log("Funcion playing nickname: "+nickname);
             console.log("Funcion playing lobby: "+nickname1);
+            sala = nickname1;
             connect(nickname1);
-            RestControllerModule.getPlayerId(nickname1,nickname);
+            
             
         }
         else{
@@ -436,14 +444,16 @@ var GameModelModule = (function () {
             var invitedRoom = sessionStorage.getItem('invitedRoom');
             console.log("Funcion playing nickname: "+nickname);
             console.log("Funcion playing lobby: "+invitedRoom);
+            sala = invitedRoom;
             connect(invitedRoom);
-            RestControllerModule.getPlayerId(invitedRoom,nickname);
+            
         }   
     }
 
     //Aqui deberia ir la posición de inicio según la letra que ya asigno el servidor( ya la asigna)
     var creatingPosition = function (spawnChar) {
         console.log("Spawn Char: " + spawnChar);
+        model.identification = spawnChar;
         if(spawnChar === spawnChar.toUpperCase()){
             if(spawnChar === 'A'){
                 console.log("spawnChar is A");
@@ -468,10 +478,12 @@ var GameModelModule = (function () {
             stompClient.subscribe('/topic/gameThieves.'+lobby, function (data) {
                 init();
             });
-            stompClient.subscribe('/topic/end.', function () {
-
+            stompClient.subscribe('/topic/colorized.'+lobby, function (data) {
+                console.log("PPPPPPP: " + JSON.parse(data.body));
             });
+            RestControllerModule.getPlayerId(sala,nickname);
             setupPixiApp(lobby);
+            
         });
        
     }
