@@ -13,6 +13,17 @@ public class Player {
 
     String nickname;
     String identification;
+    String team;
+
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    
     
     public Player(){
     
@@ -36,7 +47,7 @@ public class Player {
     
     @Override
     public String toString() {
-        return "Player{" + "nickname=" + nickname + ", identification=" + identification+ '}';
+        return "Player{" + "nickname=" + nickname + ", identification=" + identification+ ", team=" + team +  '}';
     }
     
 }

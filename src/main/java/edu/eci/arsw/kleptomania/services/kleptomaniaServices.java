@@ -15,9 +15,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public interface kleptomaniaServices {
 
-    public void addThief(int roomNumber,Player p) throws kleptomaniaServicesException;
+    public void addThief(int roomNumber,Player player) throws kleptomaniaServicesException;
 
-    public void addCops(int roomNumber,Player p) throws kleptomaniaServicesException;
+    public void addCops(int roomNumber,Player player) throws kleptomaniaServicesException;
     
     public void addRoom(int roomNumber, Room r) throws kleptomaniaServicesException;
 
@@ -28,5 +28,7 @@ public interface kleptomaniaServices {
     public CopyOnWriteArrayList<Room> getCurrentRooms() throws kleptomaniaServicesException;
 
     public String getId (int roomNumber,String nickname) throws kleptomaniaServicesException;
+    
+    public void changeTeam(int roomNumber,String nickname) throws kleptomaniaServicesException;
 
 }

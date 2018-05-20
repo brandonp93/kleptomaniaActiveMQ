@@ -64,6 +64,7 @@ public class kleptomaniaAPIController {
             }  
     } 
 
+    //add Player
     @RequestMapping(path = "/{room}/thief",method = RequestMethod.PUT)
     public ResponseEntity<?> addThief(@PathVariable("room") String roomNumber,@RequestBody Player player) throws kleptomaniaServicesException {      
             try {       
@@ -76,7 +77,6 @@ public class kleptomaniaAPIController {
             }
             return new ResponseEntity<>(HttpStatus.CREATED); 
     }
-
     
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> controllerPostRoom(@RequestBody Room r) throws kleptomaniaServicesException {
