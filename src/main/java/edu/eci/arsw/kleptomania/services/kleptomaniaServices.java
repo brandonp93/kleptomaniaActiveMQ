@@ -34,4 +34,6 @@ public interface kleptomaniaServices {
     public void changeTeam(int roomNumber,String nickname) throws kleptomaniaServicesException;
         
     public void obliterate () throws kleptomaniaServicesException;
+    
+    public String getPlayerTeam(int roomNumber,String nickname) throws kleptomaniaServicesException;
 }

@@ -1,4 +1,5 @@
 var sala;
+var nick;
 var model = {
     nickname: null,
     identification: null,
@@ -774,15 +775,21 @@ var GameModelModule = (function () {
                 receipt(JSON.parse(data.body));
             });
             RestControllerModule.getPlayerId(sala,nickname);
+            RestControllerModule.getPlayerTeam(sala,nickname);
+            
             setupPixiApp(lobby);
             
         });
        
     };
-
+    
+    var joinMyTeam = function(myTeam){
+        model.team = myTeam;
+    }
 
     return {
         playing: playing,
-        creatingPosition: creatingPosition
+        creatingPosition: creatingPosition,
+        joinMyTeam: joinMyTeam
 
     }})();

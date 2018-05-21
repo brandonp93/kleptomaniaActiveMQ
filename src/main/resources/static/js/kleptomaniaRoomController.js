@@ -33,13 +33,25 @@ var RoomControllerModule = (function () {
     };
 
     var goToRoom = function (roomNumber) {
-        invitedRoom = roomNumber.innerText;
-        sessionStorage.setItem('invitedRoom', invitedRoom);
-        RestControllerModule.joining(roomNumber.innerText);
-        //getCurrent(roomNumber.innerText);
-        document.location.href = "teamSelection.html";
+        console.log("Room Numbwe pruwba: " + roomNumber);
+        RestControllerModule.getCurrentPlayersRoom(roomNumber.innerText);
     };
-
+    
+    var sendToRoom = function (players,roomNumber){
+        if(players.length<=2){
+            console.log("IF length: " + players.length);
+            
+            invitedRoom = roomNumber;
+            console.log("Invited ROom nuevo: " + invitedRoom);
+            sessionStorage.setItem('invitedRoom', invitedRoom);
+            RestControllerModule.joining(roomNumber);
+            //getCurrent(roomNumber.innerText);
+            document.location.href = "teamSelection.html";
+        }
+        else{
+            alert("You cannot join to a full room");
+        }
+    };
     var roomsConnect = function (){
         var socket = new SockJS('/stompendpoint');
         stompClient = Stomp.over(socket);
@@ -67,7 +79,8 @@ var RoomControllerModule = (function () {
     return {
         goToRoom: goToRoom,
         loadRooms: loadRooms,
-        putRooms: putRooms
+        putRooms: putRooms,
+        sendToRoom: sendToRoom
     };
 
 })();

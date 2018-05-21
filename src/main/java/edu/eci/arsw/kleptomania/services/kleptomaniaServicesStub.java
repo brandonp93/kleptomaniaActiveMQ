@@ -32,29 +32,41 @@ public class kleptomaniaServicesStub implements kleptomaniaServices{
         } else {
            throw new kleptomaniaServicesException("This player have been joined already " + player);
         }*/
-        players.get(roomNumber).add(player); 
-        thieves.get(roomNumber).add(player);
-        int a = 64+thieves.get(roomNumber).size();
-        System.out.println("Prueba print");
-        String nickname = player.getNickname();
-        player.setTeam("T");
-        String equipo = player.getTeam();
-        System.out.println("identification Thief: " + a + " p: " + nickname + " team: " + equipo);   
-        player.setIdentification(Character.toString ((char) a));
+        
+        if(thieves.get(roomNumber).size()<2){
+            players.get(roomNumber).add(player); 
+            System.out.println("thievs size: " + thieves.get(roomNumber).size() );
+            thieves.get(roomNumber).add(player);
+            int a = 64+thieves.get(roomNumber).size();
+            System.out.println("Prueba print");
+            String nickname = player.getNickname();
+            player.setTeam("T");
+            String equipo = player.getTeam();
+            System.out.println("identification Thief: " + a + " p: " + nickname + " team: " + equipo);   
+            player.setIdentification(Character.toString ((char) a));
+        }
+        else{
+            addCops(roomNumber,player);
+        }
         
     }
 
 
     @Override
     public void addCops(int roomNumber, Player player) throws kleptomaniaServicesException {
-        players.get(roomNumber).add(player);
-        cops.get(roomNumber).add(player);
-        int a = 96+cops.get(roomNumber).size();
-        System.out.println("Prueba print COPS");
-        String nickname = player.getNickname();
-        player.setTeam("C");
-        System.out.println("identification COP: " + a + " p COP: " + nickname );   
-        player.setIdentification(Character.toString ((char) a));
+        
+        if(cops.get(roomNumber).size()<1){
+            players.get(roomNumber).add(player);
+            System.out.println("cops size: " + cops.get(roomNumber).size() );
+            cops.get(roomNumber).add(player);
+            int a = 96+cops.get(roomNumber).size();
+            System.out.println("Prueba print COPS");
+            String nickname = player.getNickname();
+            player.setTeam("C");
+            System.out.println("identification COP: " + a + " p COP: " + nickname );   
+            player.setIdentification(Character.toString ((char) a));
+        }
+        
         
     }
 
@@ -166,6 +178,7 @@ public class kleptomaniaServicesStub implements kleptomaniaServices{
         players.clear();
         cops.clear();
         thieves.clear();
+        rooms.clear();
     }
 
     @Override
@@ -185,6 +198,18 @@ public class kleptomaniaServicesStub implements kleptomaniaServices{
         else{
             throw new kleptomaniaServicesException("This room doesn't exist " + roomNumber);
         }
+    }
+
+    @Override
+    public String getPlayerTeam(int roomNumber,String nickname) throws kleptomaniaServicesException {
+        CopyOnWriteArrayList<Player> p =  players.get(roomNumber);
+        String myteam = null;
+        for (Player pla : p) {
+            if(pla.getNickname().equals(nickname)){
+                myteam = pla.getTeam();
+            }
+        }
+        return myteam;
     }
 
 }

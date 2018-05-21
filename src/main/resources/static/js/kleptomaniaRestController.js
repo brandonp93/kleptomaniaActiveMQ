@@ -47,7 +47,18 @@ var RestControllerModule = (function () {
         });
 
     }
+    
+    var getCurrentPlayersRoom =  function (lobby) {
+        axios.get('/lobby/'+lobby+'/thief').then(function (response) {
+            console.log(response);
+            console.log("Get current players respuesta: RESTTTTTTTTTTTTTTTTTTTTTTT " +response['data']);
+            RoomControllerModule.sendToRoom(response['data'],lobby)
+        }).catch(function (error) {
+            console.log(error);
+        });
 
+    }
+    
     var getPlayerId = function (lobby,nickname) {
         console.log("Imprimiendo el nickname que llega por parametro: ", nickname);
         console.log("Imprimiendo el lobby que llega por parametro: ", lobby);
@@ -69,17 +80,44 @@ var RestControllerModule = (function () {
         });
     }
     
-    var getLadrones = function () {
-        axios.get('/lobby').then(function (response) {
+    var getPlayerTeam = function(lobby,nickname){
+        axios.get('/lobby/'+lobby+'/'+nickname+'/team').then(function (response) {
             console.log(response);
+            GameModelModule.joinMyTeam(response['data']);
         }).catch(function (error) {
             console.log(error);
         });
     }
     
-    var getPolicias = function () {
+    var getPlayerChangeTeam = function(lobby,nickname){
+        axios.get('/lobby/'+lobby+'/'+nickname+'/team').then(function (response) {
+            console.log('GerPlayerChangeTeam');
+            console.log(response);
+            TeamControllerModule.isPossible(response['data'],lobby);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+    var getLadrones = function(lobby,teamChar){
+        axios.get('/lobby/'+lobby+'/ladrones').then(function (response) {
+            console.log(response);
+            TeamControllerModule.tryToChange(response['data'],teamChar,lobby);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+    var getPolicias = function(lobby,teamChar){
+        axios.get('/lobby/'+lobby+'/policias').then(function (response) {
+            console.log(response);
+            TeamControllerModule.tryToChange(response['data'],teamChar,lobby);
+        }).catch(function (error) {
+            console.log(error);
+        });
         
     }
+    
     return {
         newLobby: newLobby,
         getRooms: getRooms,
@@ -87,8 +125,11 @@ var RestControllerModule = (function () {
         getPlayerId: getPlayerId,
         getCurrentPlayers: getCurrentPlayers,
         deleteEverything: deleteEverything,
+        getPlayerTeam: getPlayerTeam,
+        getCurrentPlayersRoom: getCurrentPlayersRoom,
         getLadrones: getLadrones,
-        getPolicias: getPolicias
+        getPolicias: getPolicias,
+        getPlayerChangeTeam: getPlayerChangeTeam
     };
 
 })();

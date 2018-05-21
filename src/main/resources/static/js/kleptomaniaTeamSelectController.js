@@ -105,9 +105,43 @@ var TeamControllerModule = (function () {
     };
     
     var changeTeam = function (lb){
+        console.log('Change Team');
         nickname = sessionStorage.getItem('nickname');
-        stompClient.send("/app/teamPlayer."+lb, {}, nickname);
+        RestControllerModule.getPlayerChangeTeam(lb,nickname);
+        
     };
+    
+    var isPossible = function(teamChar,lobby){
+        console.log('isPossible');
+        if(teamChar==='T'){
+            console.log('isPossible T');
+            RestControllerModule.getPolicias(lobby,teamChar);
+        }
+        else{
+            console.log('isPossible C');
+            RestControllerModule.getLadrones(lobby,teamChar);
+        }
+    };
+    
+    var tryToChange = function(players,teamChar,lb){
+        nickname = sessionStorage.getItem('nickname');
+        if(teamChar==='T'){
+            if(players.length<1){
+                stompClient.send("/app/teamPlayer."+lb, {}, nickname);
+            }
+            else{
+                alert('Cops Team is Full');
+            }
+        }
+        else{
+            if(players.length<2){
+                stompClient.send("/app/teamPlayer."+lb, {}, nickname);
+            }
+            else{
+                alert('Thieves Team is Full');
+            }
+        }
+    }
     
     var putPlayers = function (currentPlayers) {
         showCurrentPlayers(currentPlayers);
@@ -117,6 +151,8 @@ var TeamControllerModule = (function () {
         loadingCurrentPlayers: loadingCurrentPlayers,
         newGame: newGame,
         changeTeam: changeTeam,
-        putPlayers: putPlayers
+        putPlayers: putPlayers,
+        isPossible: isPossible,
+        tryToChange: tryToChange
     };
 })();

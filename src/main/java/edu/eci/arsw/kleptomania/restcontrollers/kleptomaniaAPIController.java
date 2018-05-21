@@ -147,5 +147,16 @@ public class kleptomaniaAPIController {
                     return new ResponseEntity<>("There are no cops in this room: " + ex,HttpStatus.NOT_FOUND);
             }  
         } 
+        
+        @RequestMapping(path = "/{roomNumber}/{nickname}/team", method = RequestMethod.GET)
+        public ResponseEntity<?> controllerGetPolicias (@PathVariable String roomNumber,@PathVariable String nickname) throws kleptomaniaServicesException{
+            try {
+                    //obtener datos que se enviarán a través del API
+                    return new ResponseEntity<>(services.getPlayerTeam(Integer.parseInt(roomNumber),nickname),HttpStatus.ACCEPTED);
+            } catch (kleptomaniaServicesException ex) {
+                    Logger.getLogger(kleptomaniaServicesException.class.getName()).log(Level.SEVERE, null, ex);
+                    return new ResponseEntity<>("There are no cops in this room: " + ex,HttpStatus.NOT_FOUND);
+            }  
+        } 
     
 }
