@@ -18,6 +18,8 @@ public class Player {
     String thisypos;
     String thisvx;
     String thisvy;
+    String animationDir;
+    String animationType;
 
     public String getThisvx() {
         return thisvx;
@@ -80,10 +82,36 @@ public class Player {
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
-    
+
+    public String getAnimationType() {
+        return animationType;
+    }
+
+    public void setAnimationType(String animationType) {
+        this.animationType = animationType;
+    }
+
+    public String getAnimationDir() {
+        return animationDir;
+    }
+
+    public void setAnimationDir(String animationDir) {
+        this.animationDir = animationDir;
+    }
+
     @Override
     public String toString() {
-        return "Player{" + "nickname=" + nickname + ", identification=" + identification+ ", team=" + team + ", thisposx=" +  thisxpos + ", thisposy="+ thisypos + ", thisvx=" + thisvx + ", thisvy=" + thisvy +'}';
+        return "Player{" +
+                "nickname='" + nickname + '\'' +
+                ", identification='" + identification + '\'' +
+                ", team='" + team + '\'' +
+                ", thisxpos='" + thisxpos + '\'' +
+                ", thisypos='" + thisypos + '\'' +
+                ", thisvx='" + thisvx + '\'' +
+                ", thisvy='" + thisvy + '\'' +
+                ", animationDir='" + animationDir + '\'' +
+                ", animationType='" + animationType + '\'' +
+                '}';
     }
-    
+
 }
