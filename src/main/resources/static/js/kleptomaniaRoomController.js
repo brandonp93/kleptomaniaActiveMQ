@@ -51,13 +51,13 @@ var RoomControllerModule = (function () {
                 console.log("ROOMS CONEECT: DATA " + rooms);
                 showCurrentRooms(rooms);
             });
-
         });
     };
 
     var loadRooms = function () {
         roomsConnect();
         RestControllerModule.getRooms();
+        
     };
 
     var putRooms = function (currentRoom) {

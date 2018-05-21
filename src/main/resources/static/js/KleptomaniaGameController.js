@@ -1,15 +1,22 @@
+var sala;
 var model = {
+    nickname: null,
+    identification: null,
+    team: 'T',
     thisxpos:0,
     thisypos:0,
-    thisvx:0,
-    thisvy:0,
-    loadedPolices:[],
-    loadedObjects:[],
-    loadedThiefs:[]
+    thisvx: 0,
+    thisvy: 0,
+    players:{},
+    SpriteAct: null,
+    animationType: 0,
+    animationDir: 'd',
+    animStatic: 0
 };
 
 var Dx = screen.width*0.99;
 var Dy = screen.height*0.86;
+var stompClient = null;
 
 var GameModelModule = (function () {
     //Alias
@@ -28,10 +35,14 @@ var GameModelModule = (function () {
     var PLStatic;
     var PUStatic;
     var PDStatic;
-    var TRStatic;
-    var TLStatic;
-    var TUStatic;
-    var TDStatic;
+    var TRStatic1;
+    var TLStatic1;
+    var TUStatic1;
+    var TDStatic1;
+    var TRStatic2;
+    var TLStatic2;
+    var TUStatic2;
+    var TDStatic2;
     var Diamond;
     var Coin;
     var Gold;
@@ -39,10 +50,14 @@ var GameModelModule = (function () {
     var PDownAnim;
     var PLeftAnim;
     var PRightAnim;
-    var TUpAnim;
-    var TDownAnim;
-    var TLeftAnim;
-    var TRightAnim;
+    var TUpAnim1;
+    var TDownAnim1;
+    var TLeftAnim1;
+    var TRightAnim1;
+    var TUpAnim2;
+    var TDownAnim2;
+    var TLeftAnim2;
+    var TRightAnim2;
 
     //structure world vars 
     var Background;
@@ -54,20 +69,20 @@ var GameModelModule = (function () {
     //Util var
     var animationType = 0;
     var animationDir;
-    var SpriteAct;
 
     //Initial setup
-    var setupPixiApp = function () {
+    var setupPixiApp = function (lobby) {
         window.addEventListener("resize", function() {
             app.renderer.resize(Dx, Dy);
         });
         
         app = new Application(Dx, Dy, {resolution:1});
         document.body.appendChild(app.view);
-        loadSprites();
+        loadSprites(lobby);
+        
     };
 
-    var loadSprites = function () {
+    var loadSprites = function (lobby) {
         loader
             .add("spritesheet","../images/Spritesheet.json")
             .load( function () {
@@ -127,30 +142,56 @@ var GameModelModule = (function () {
                 PDStatic.scale.y = 0.3;
                 PDStatic.visible = false;
                 app.stage.addChild(PDStatic);
+
                 //set the image of the thieft to right
-                TRStatic = new Sprite(resources.spritesheet.textures["TRStatic.png"]);
-                TRStatic.scale.x = 0.3;
-                TRStatic.scale.y = 0.3;
-                TRStatic.visible = false;
-                app.stage.addChild(TRStatic);
+                TRStatic1 = new Sprite(resources.spritesheet.textures["TRStatic.png"]);
+                TRStatic1.scale.x = 0.3;
+                TRStatic1.scale.y = 0.3;
+                TRStatic1.visible = false;
+                app.stage.addChild(TRStatic1);
                 //set the image of the thieft to left
-                TLStatic = new Sprite(resources.spritesheet.textures["TLStatic.png"]);
-                TLStatic.scale.x = 0.3;
-                TLStatic.scale.y = 0.3;
-                TLStatic.visible = false;
-                app.stage.addChild(TLStatic);
+                TLStatic1 = new Sprite(resources.spritesheet.textures["TLStatic.png"]);
+                TLStatic1.scale.x = 0.3;
+                TLStatic1.scale.y = 0.3;
+                TLStatic1.visible = false;
+                app.stage.addChild(TLStatic1);
                 //set the image of the thieft to up
-                TUStatic = new Sprite(resources.spritesheet.textures["TUStatic.png"]);
-                TUStatic.scale.x = 0.3;
-                TUStatic.scale.y = 0.3;
-                TUStatic.visible = false;
-                app.stage.addChild(TUStatic);
+                TUStatic1 = new Sprite(resources.spritesheet.textures["TUStatic.png"]);
+                TUStatic1.scale.x = 0.3;
+                TUStatic1.scale.y = 0.3;
+                TUStatic1.visible = false;
+                app.stage.addChild(TUStatic1);
                 //set the image of the thieft to down
-                TDStatic = new Sprite(resources.spritesheet.textures["TDStatic.png"]);
-                TDStatic.scale.x = 0.3;
-                TDStatic.scale.y = 0.3;
-                TDStatic.visible = false;
-                app.stage.addChild(TDStatic);
+                TDStatic1 = new Sprite(resources.spritesheet.textures["TDStatic.png"]);
+                TDStatic1.scale.x = 0.3;
+                TDStatic1.scale.y = 0.3;
+                TDStatic1.visible = false;
+                app.stage.addChild(TDStatic1);
+
+                //set the image of the thieft to right
+                TRStatic2 = new Sprite(resources.spritesheet.textures["TRStatic.png"]);
+                TRStatic2.scale.x = 0.3;
+                TRStatic2.scale.y = 0.3;
+                TRStatic2.visible = false;
+                app.stage.addChild(TRStatic2);
+                //set the image of the thieft to left
+                TLStatic2 = new Sprite(resources.spritesheet.textures["TLStatic.png"]);
+                TLStatic2.scale.x = 0.3;
+                TLStatic2.scale.y = 0.3;
+                TLStatic2.visible = false;
+                app.stage.addChild(TLStatic2);
+                //set the image of the thieft to up
+                TUStatic2 = new Sprite(resources.spritesheet.textures["TUStatic.png"]);
+                TUStatic2.scale.x = 0.3;
+                TUStatic2.scale.y = 0.3;
+                TUStatic2.visible = false;
+                app.stage.addChild(TUStatic2);
+                //set the image of the thieft to down
+                TDStatic2 = new Sprite(resources.spritesheet.textures["TDStatic.png"]);
+                TDStatic2.scale.x = 0.3;
+                TDStatic2.scale.y = 0.3;
+                TDStatic2.visible = false;
+                app.stage.addChild(TDStatic2);
 
                 //Load the resources of the world
                 Diamond = new Sprite(resources.spritesheet.textures["Diamond.png"]);
@@ -217,67 +258,117 @@ var GameModelModule = (function () {
                 PLeftAnim.play();
                 PLeftAnim.visible = false;
                 app.stage.addChild(PLeftAnim);
+
                 frames = [];
                 frames.push(resources.spritesheet.textures["TUStatic.png"]);
                 frames.push(resources.spritesheet.textures["TUMov1.png"]);
                 frames.push(resources.spritesheet.textures["TUMov2.png"]);
                 frames.push(resources.spritesheet.textures["TUStatic.png"]);
-                TUpAnim = new PIXI.extras.AnimatedSprite(frames);
-                TUpAnim.scale.x = 0.3;
-                TUpAnim.scale.y = 0.3;
-                TUpAnim.animationSpeed = 0.2;
-                TUpAnim.play();
-                TUpAnim.visible = false;
-                app.stage.addChild(TUpAnim);
+                TUpAnim1 = new PIXI.extras.AnimatedSprite(frames);
+                TUpAnim1.scale.x = 0.3;
+                TUpAnim1.scale.y = 0.3;
+                TUpAnim1.animationSpeed = 0.2;
+                TUpAnim1.play();
+                TUpAnim1.visible = false;
+                app.stage.addChild(TUpAnim1);
                 frames = [];
                 frames.push(resources.spritesheet.textures["TDStatic.png"]);
                 frames.push(resources.spritesheet.textures["TDMov1.png"]);
                 frames.push(resources.spritesheet.textures["TDMov2.png"]);
                 frames.push(resources.spritesheet.textures["TDStatic.png"]);
-                TDownAnim = new PIXI.extras.AnimatedSprite(frames);
-                TDownAnim.scale.x = 0.3;
-                TDownAnim.scale.y = 0.3;
-                TDownAnim.animationSpeed = 0.2;
-                TDownAnim.play();
-                TDownAnim.visible = false;
-                app.stage.addChild(TDownAnim);
+                TDownAnim1 = new PIXI.extras.AnimatedSprite(frames);
+                TDownAnim1.scale.x = 0.3;
+                TDownAnim1.scale.y = 0.3;
+                TDownAnim1.animationSpeed = 0.2;
+                TDownAnim1.play();
+                TDownAnim1.visible = false;
+                app.stage.addChild(TDownAnim1);
                 frames = [];
                 frames.push(resources.spritesheet.textures["TRStatic.png"]);
                 frames.push(resources.spritesheet.textures["TRMov1.png"]);
                 frames.push(resources.spritesheet.textures["TRMov2.png"]);
                 frames.push(resources.spritesheet.textures["TRStatic.png"]);
-                TRightAnim = new PIXI.extras.AnimatedSprite(frames);
-                TRightAnim.scale.x = 0.3;
-                TRightAnim.scale.y = 0.3;
-                TRightAnim.animationSpeed = 0.2;
-                TRightAnim.play();
-                TRightAnim.visible = false;
-                app.stage.addChild(TRightAnim);
+                TRightAnim1 = new PIXI.extras.AnimatedSprite(frames);
+                TRightAnim1.scale.x = 0.3;
+                TRightAnim1.scale.y = 0.3;
+                TRightAnim1.animationSpeed = 0.2;
+                TRightAnim1.play();
+                TRightAnim1.visible = false;
+                app.stage.addChild(TRightAnim1);
                 frames = [];
                 frames.push(resources.spritesheet.textures["TLStatic.png"]);
                 frames.push(resources.spritesheet.textures["TLMov1.png"]);
                 frames.push(resources.spritesheet.textures["TLMov2.png"]);
                 frames.push(resources.spritesheet.textures["TLStatic.png"]);
-                TLeftAnim = new PIXI.extras.AnimatedSprite(frames);
-                TLeftAnim.scale.x = 0.3;
-                TLeftAnim.scale.y = 0.3;
-                TLeftAnim.animationSpeed = 0.2;
-                TLeftAnim.play();
-                TLeftAnim.visible = false;
-                app.stage.addChild(TLeftAnim);
+                TLeftAnim1 = new PIXI.extras.AnimatedSprite(frames);
+                TLeftAnim1.scale.x = 0.3;
+                TLeftAnim1.scale.y = 0.3;
+                TLeftAnim1.animationSpeed = 0.2;
+                TLeftAnim1.play();
+                TLeftAnim1.visible = false;
+                app.stage.addChild(TLeftAnim1);
+
+                frames = [];
+                frames.push(resources.spritesheet.textures["TUStatic.png"]);
+                frames.push(resources.spritesheet.textures["TUMov1.png"]);
+                frames.push(resources.spritesheet.textures["TUMov2.png"]);
+                frames.push(resources.spritesheet.textures["TUStatic.png"]);
+                TUpAnim2 = new PIXI.extras.AnimatedSprite(frames);
+                TUpAnim2.scale.x = 0.3;
+                TUpAnim2.scale.y = 0.3;
+                TUpAnim2.animationSpeed = 0.2;
+                TUpAnim2.play();
+                TUpAnim2.visible = false;
+                app.stage.addChild(TUpAnim2);
+                frames = [];
+                frames.push(resources.spritesheet.textures["TDStatic.png"]);
+                frames.push(resources.spritesheet.textures["TDMov1.png"]);
+                frames.push(resources.spritesheet.textures["TDMov2.png"]);
+                frames.push(resources.spritesheet.textures["TDStatic.png"]);
+                TDownAnim2 = new PIXI.extras.AnimatedSprite(frames);
+                TDownAnim2.scale.x = 0.3;
+                TDownAnim2.scale.y = 0.3;
+                TDownAnim2.animationSpeed = 0.2;
+                TDownAnim2.play();
+                TDownAnim2.visible = false;
+                app.stage.addChild(TDownAnim2);
+                frames = [];
+                frames.push(resources.spritesheet.textures["TRStatic.png"]);
+                frames.push(resources.spritesheet.textures["TRMov1.png"]);
+                frames.push(resources.spritesheet.textures["TRMov2.png"]);
+                frames.push(resources.spritesheet.textures["TRStatic.png"]);
+                TRightAnim2 = new PIXI.extras.AnimatedSprite(frames);
+                TRightAnim2.scale.x = 0.3;
+                TRightAnim2.scale.y = 0.3;
+                TRightAnim2.animationSpeed = 0.2;
+                TRightAnim2.play();
+                TRightAnim2.visible = false;
+                app.stage.addChild(TRightAnim2);
+                frames = [];
+                frames.push(resources.spritesheet.textures["TLStatic.png"]);
+                frames.push(resources.spritesheet.textures["TLMov1.png"]);
+                frames.push(resources.spritesheet.textures["TLMov2.png"]);
+                frames.push(resources.spritesheet.textures["TLStatic.png"]);
+                TLeftAnim2 = new PIXI.extras.AnimatedSprite(frames);
+                TLeftAnim2.scale.x = 0.3;
+                TLeftAnim2.scale.y = 0.3;
+                TLeftAnim2.animationSpeed = 0.2;
+                TLeftAnim2.play();
+                TLeftAnim2.visible = false;
+                app.stage.addChild(TLeftAnim2);
                 init();
             });
     };
 
+
     function init() {
-        model.thisxpos = (Math.random() * 300) + 1;
-        model.thisypos = (Math.random() * 300) + 1;
-        SpriteAct=TDStatic;
-        SpriteAct.x = model.thisxpos;
-        SpriteAct.y = model.thisypos;
-        SpriteAct.visible = true;
-        animationType = 0;
-        animationDir = "d";
+        //model.thisxpos = (Math.random() * 300) + 1;
+        //model.thisypos = (Math.random() * 300) + 1;
+
+        model.SpriteAct=TDStatic1;
+        model.SpriteAct.x = model.thisxpos;
+        model.SpriteAct.y = model.thisypos;
+        model.SpriteAct.visible = true;
 
         function keyboard(keyCode) {
             let key = {};
@@ -324,61 +415,76 @@ var GameModelModule = (function () {
 
         //Left
         left.press = function () {
-            if (collision()){
-                model.thisvx = -5;
-                model.thisvy = 0;
-                animationDir = "l";
-                animationType = 1;
-            }
+            model.thisvx = -5;
+            model.thisvy = 0;
+            model.animationDir = "l";
+            model.animationType = 1;
+            model.animStatic = 0;
         };
         left.release = function () {
             if (!right.isDown && model.thisvy === 0) {
                model.thisvx = 0;
             }
-            animationType = 0;
+            model.animationType = 0;
         };
 
         //Up
         up.press = function () {
             model.thisvy = -5;
             model.thisvx = 0;
-            animationDir = "u";
-            animationType = 1;
+            model.animationDir = "u";
+            model.animationType = 1;
+            model.animStatic = 0;
         };
         up.release = function () {
             if (!down.isDown && model.thisvx === 0) {
                 model.thisvy = 0;
             }
-            animationType = 0;
+            model.animationType = 0;
         };
 
         //Right
         right.press = function () {
             model.thisvx = 5;
             model.thisvy = 0;
-            animationDir = "r";
-            animationType = 1;
+            model.animationDir = "r";
+            model.animationType = 1;
+            model.animStatic = 0;
         };
         right.release = function () {
             if (!left.isDown && model.thisvy === 0) {
                 model.thisvx = 0;
             }
-            animationType = 0;
+            model.animationType = 0;
         };
 
         //Down
         down.press = function () {
             model.thisvy = 5;
             model.thisvx = 0;
-            animationDir ="d";
-            animationType = 1;
+            model.animationDir ="d";
+            model.animationType = 1;
+            model.animStatic = 0;
         };
         down.release = function () {
             if (!up.isDown && model.thisvx === 0) {
                 model.thisvy = 0;
             }
-            animationType = 0;
+            model.animationType = 0;
         };
+
+        stompClient.send("/app/position." + sala, {}, JSON.stringify(
+            {   nickname: model.nickname,
+                identification: model.identification,
+                team: model.team,
+                thisxpos: model.thisxpos,
+                thisypos: model.thisypos,
+                thisvy: model.thisvy,
+                thisvx: model.thisvx,
+                animationType: model.animationType,
+                animationDir: model.animationDir
+            }));
+
         state = play;
 
         app.ticker.add(delta => gameLoop(delta));
@@ -430,26 +536,253 @@ var GameModelModule = (function () {
     }
     
     function play() {
-        model.thisxpos += model.thisvx;
-        model.thisypos += model.thisvy;
-        SpriteAct.visible = false;
-        if(animationType == 0){
-            if(animationDir == "l"){SpriteAct = TLStatic;}
-            else if(animationDir == "u"){SpriteAct = TUStatic;}
-            else if(animationDir == "d"){SpriteAct = TDStatic;}
-            else if(animationDir == "r"){SpriteAct = TRStatic;}
-        }else{
-            if(animationDir == "l"){SpriteAct = TLeftAnim;}
-            else if(animationDir == "u"){SpriteAct = TUpAnim;}
-            else if(animationDir == "d"){SpriteAct = TDownAnim;}
-            else if(animationDir == "r"){SpriteAct = TRightAnim;}
-        }
-        SpriteAct.x = model.thisxpos;
-        SpriteAct.y = model.thisypos;
-        SpriteAct.visible = true;
+
+            model.thisxpos += model.thisvx;
+            model.thisypos += model.thisvy;
+            paintm(model);
+            if(model.animationType != 0 ){
+                stompClient.send("/app/position." + sala, {}, JSON.stringify(
+                    {
+                        nickname: model.nickname,
+                        identification: model.identification,
+                        team: model.team,
+                        thisxpos: model.thisxpos,
+                        thisypos: model.thisypos,
+                        thisvy: model.thisvy,
+                        thisvx: model.thisvx,
+                        animationType: model.animationType,
+                        animationDir: model.animationDir
+                    }));
+            }else if (model.animationType == 0 && model.animStatic != 1){
+                stompClient.send("/app/position." + sala, {}, JSON.stringify(
+                    {
+                        nickname: model.nickname,
+                        identification: model.identification,
+                        team: model.team,
+                        thisxpos: model.thisxpos,
+                        thisypos: model.thisypos,
+                        thisvy: model.thisvy,
+                        thisvx: model.thisvx,
+                        animationType: model.animationType,
+                        animationDir: model.animationDir
+                    }));
+                model.animStatic = 1;
+            }
+
     }
 
+    var receipt = function (data) {
+        if(data.identification in model.players){
+            model.players[data.identification].thisxpos = data.thisxpos;
+            model.players[data.identification].thisypos = data.thisypos;
+            model.players[data.identification].animationDir = data.animationDir;
+            model.players[data.identification].animationType = data.animationType;
+            paintExt(model.players[data.identification]);
+        }else if (data.identification !== model.identification) {
+            model.players[data.identification] = {nickname: data.nickname, identification: data.identification,
+                                                  team: data.team, thisxpos: data.thisxpos, thisypos: data.thisypos,
+                                                  thisvy: data.thisvy, thisvx: data.thisvx, animationType: data.animationType,
+                                                  animationDir: data.animationDir, SpriteAct: null};
+            paintExt(model.players[data.identification]);
+
+        }
+    };
+
+    var paintExt = function (data) {
+        if (data.SpriteAct != null){data.SpriteAct.visible = false;}
+        if (data.animationType == 0) {
+            if (data.team == 'T') {
+                if (data.animationDir == "l") {
+                    data.SpriteAct = TLStatic2;
+                }
+                else if (data.animationDir == "u") {
+                    data.SpriteAct = TUStatic2;
+                }
+                else if (data.animationDir == "d") {
+                    data.SpriteAct = TDStatic2;
+                }
+                else if (data.animationDir == "r") {
+                    data.SpriteAct = TRStatic2;
+                }
+            } else if (data.team == 'C') {
+                if (data.animationDir == "l") {
+                    data.SpriteAct = PLStatic;
+                }
+                else if (data.animationDir == "u") {
+                    data.SpriteAct = PUStatic;
+                }
+                else if (data.animationDir == "d") {
+                    data.SpriteAct = PDStatic;
+                }
+                else if (data.animationDir == "r") {
+                    data.SpriteAct = PRStatic;
+                }
+            }
+        } else {
+            if (data.team == 'T') {
+                if (data.animationDir == "l") {
+                    data.SpriteAct = TLeftAnim2;
+                }
+                else if (data.animationDir == "u") {
+                    data.SpriteAct = TUpAnim2;
+                }
+                else if (data.animationDir == "d") {
+                    data.SpriteAct = TDownAnim2;
+                }
+                else if (data.animationDir == "r") {
+                    data.SpriteAct = TRightAnim2;
+                }
+            } else if (data.team == 'C') {
+                if (data.animationDir == "l") {
+                    data.SpriteAct = PLeftAnim;
+                }
+                else if (data.animationDir == "u") {
+                    data.SpriteAct = PUpAnim;
+                }
+                else if (data.animationDir == "d") {
+                    data.SpriteAct = PDownAnim;
+                }
+                else if (data.animationDir == "r") {
+                    data.SpriteAct = PRightAnim;
+                }
+            }
+        }
+        data.SpriteAct.x = data.thisxpos;
+        data.SpriteAct.y = data.thisypos;
+        data.SpriteAct.visible = true;
+
+    };
+
+    var paintm = function (data) {
+        data.SpriteAct.visible = false;
+        if (data.animationType == 0) {
+            if (data.team == 'T') {
+                if (data.animationDir == "l") {
+                    data.SpriteAct = TLStatic1;
+                }
+                else if (data.animationDir == "u") {
+                    data.SpriteAct = TUStatic1;
+                }
+                else if (data.animationDir == "d") {
+                    data.SpriteAct = TDStatic1;
+                }
+                else if (data.animationDir == "r") {
+                    data.SpriteAct = TRStatic1;
+                }
+            } else if (data.team == 'C') {
+                if (data.animationDir == "l") {
+                    data.SpriteAct = PLStatic;
+                }
+                else if (data.animationDir == "u") {
+                    data.SpriteAct = PUStatic;
+                }
+                else if (data.animationDir == "d") {
+                    data.SpriteAct = PDStatic;
+                }
+                else if (data.animationDir == "r") {
+                    data.SpriteAct = PRStatic;
+                }
+            }
+        } else {
+            if (data.team == 'T') {
+                if (data.animationDir == "l") {
+                    data.SpriteAct = TLeftAnim1;
+                }
+                else if (data.animationDir == "u") {
+                    data.SpriteAct = TUpAnim1;
+                }
+                else if (data.animationDir == "d") {
+                    data.SpriteAct = TDownAnim1;
+                }
+                else if (data.animationDir == "r") {
+                    data.SpriteAct = TRightAnim1;
+                }
+            } else if (data.team == 'C') {
+                if (data.animationDir == "l") {
+                    data.SpriteAct = PLeftAnim;
+                }
+                else if (data.animationDir == "u") {
+                    data.SpriteAct = PUpAnim;
+                }
+                else if (data.animationDir == "d") {
+                    data.SpriteAct = PDownAnim;
+                }
+                else if (data.animationDir == "r") {
+                    data.SpriteAct = PRightAnim;
+                }
+            }
+        }
+        data.SpriteAct.x = data.thisxpos;
+        data.SpriteAct.y = data.thisypos;
+        data.SpriteAct.visible = true;
+    };
+
+    var playing = function () {
+        
+        nickname = sessionStorage.getItem('nickname');
+        model.nickname = nickname;
+        var nickname1 = sessionStorage.getItem('nickname1');
+        if(nickname1!=null){           
+            console.log("Entro al if");  
+            console.log("Funcion playing nickname: "+nickname);
+            console.log("Funcion playing lobby: "+nickname1);
+            sala = nickname1;
+            connect(nickname1);
+            
+            
+        }
+        else{
+            console.log("Entro al else");
+            var invitedRoom = sessionStorage.getItem('invitedRoom');
+            console.log("Funcion playing nickname: "+nickname);
+            console.log("Funcion playing lobby: "+invitedRoom);
+            sala = invitedRoom;
+            connect(invitedRoom);
+            
+        }   
+    };
+
+    //Aqui deberia ir la posición de inicio según la letra que ya asigno el servidor( ya la asigna)
+    var creatingPosition = function (spawnChar) {
+        console.log("Spawn Char: " + spawnChar);
+        model.identification = spawnChar;
+        if(spawnChar === spawnChar.toUpperCase()){
+            if(spawnChar === 'A'){
+                console.log("spawnChar is A");
+                model.thisxpos = 300;
+                model.thisypos = 300;
+            }
+            else if (spawnChar === 'B'){
+                console.log("spawnChar is B");
+                model.thisxpos = 500;
+                model.thisypos = 500;
+            }
+        }
+    };
+
+    var connect = function (lobby) {
+        var socket = new SockJS('/stompendpoint');
+        var nickname = sessionStorage.getItem('nickname');
+        console.log("nickname: ",nickname);
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            console.log('Connected: ' + frame);
+            stompClient.subscribe('/topic/gameThieves.'+lobby, function (data) {
+
+            });
+            stompClient.subscribe('/topic/colorized.'+lobby, function (data) {
+                receipt(JSON.parse(data.body));
+            });
+            RestControllerModule.getPlayerId(sala,nickname);
+            setupPixiApp(lobby);
+            
+        });
+       
+    };
+
+
     return {
-        setupApp: setupPixiApp
+        playing: playing,
+        creatingPosition: creatingPosition
+
     }})();
-GameModelModule.setupApp();
