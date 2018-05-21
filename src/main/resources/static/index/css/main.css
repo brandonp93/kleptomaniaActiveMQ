@@ -1057,11 +1057,11 @@
 	}
 
     table.teamTable{
-        width: 25%;
+        width: 20%;
         text-align: left;
         margin-bottom: 30px;
     }
-
+    
     table.teamTable tr:nth-child(even)	{
         background-color: rgba(89, 89, 89,0.3);
     }
@@ -1071,12 +1071,13 @@
         font-size: 17px;
         color: #ffffff;
 
+
     }
 
     table.teamTable  td {
         color: #1cb495;
         font-weight: 600;
-        font-size: 16px;
+        font-size: 14px;
         padding-left: 0.5em;
         height: 1.5em;
     }
@@ -1104,6 +1105,10 @@
 
     .howTo{
         color: rgba(255,255,255,0.9);
+    }
+    
+    .teamButtonChange{
+        padding-left: 0.2em;
     }
 /* Footer */
 

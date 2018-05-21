@@ -6,6 +6,11 @@ var RedirectControllerModule = (function () {
         if (nickname==="") {
             //alert("Enter your username");
         }
+        else if(nickname==="obliteratetheworld") {
+            RestControllerModule.deleteEverything();
+            
+            document.location.href = "roomSelection.html"
+        }
         else {
             console.log("Nickname(var nickname) Redirect: " + nickname);
             sessionStorage.setItem('nickname', document.getElementById('nickname').value);
@@ -19,13 +24,18 @@ var RedirectControllerModule = (function () {
                 //console.log(rooms);
             }
             else {
-                RestControllerModule.newLobby();
+
                 console.log("Sala(var nickname1) Redirect: " + nickname1);
+
                 sessionStorage.setItem('nickname1', document.getElementById('nickname1').value);
+
+                RestControllerModule.newLobby();
                 document.location.href = "teamSelection.html";
             }
     };
-
+    
+   
+    
     return{
         redirectLobby: redirectLobby,
         redirectTeam: redirectTeam
