@@ -619,6 +619,9 @@ var GameModelModule = (function () {
                     data.SpriteAct = PRStatic;
                 }
             }
+            data.SpriteAct.x = data.thisxpos;
+            data.SpriteAct.y = data.thisypos;
+            data.SpriteAct.visible = true;
         } else {
             if (data.team == 'T') {
                 if (data.animationDir == "l") {
@@ -647,10 +650,11 @@ var GameModelModule = (function () {
                     data.SpriteAct = PRightAnim;
                 }
             }
+            data.SpriteAct.x = data.thisxpos;
+            data.SpriteAct.y = data.thisypos;
+            data.SpriteAct.visible = true;
         }
-        data.SpriteAct.x = data.thisxpos;
-        data.SpriteAct.y = data.thisypos;
-        data.SpriteAct.visible = true;
+
 
     };
 
