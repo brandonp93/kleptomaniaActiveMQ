@@ -8,6 +8,9 @@ var model = {
     loadedThiefs:[]
 };
 
+var Dx = screen.width*0.99;
+var Dy = screen.height*0.86;
+
 var GameModelModule = (function () {
     //Alias
     var app;
@@ -18,6 +21,7 @@ var GameModelModule = (function () {
     var TextureCache = PIXI.utils.TextureCache;
     var Sprite = PIXI.Sprite;
     var Rectangle = PIXI.Rectangle;
+    var container = {x: 0, y: 0, width: Dx, height: Dy};
 
     //Sprites var
     var PRStatic;
@@ -55,9 +59,10 @@ var GameModelModule = (function () {
     //Initial setup
     var setupPixiApp = function () {
         window.addEventListener("resize", function() {
-            app.renderer.resize(window.innerWidth, window.innerHeight);
+            app.renderer.resize(Dx, Dy);
         });
-        app = new Application(window.innerWidth, window.innerHeight, {resolution:1});
+        
+        app = new Application(Dx, Dy, {resolution:1});
         document.body.appendChild(app.view);
         loadSprites();
     };
@@ -81,7 +86,7 @@ var GameModelModule = (function () {
                 var ys = [10,b,b*2,b*3];
                 var c = 0;
                 var d = 0;
-                for (i=0; i<16; i++){
+                for (i=0; i<8; i++){
                     var House = new Sprite(resources.spritesheet.textures["house"+Math.floor((Math.random() * 3) + 1)+".png"]);
                     House.scale.x = 0.5;
                     House.scale.y = 0.5;
@@ -319,10 +324,12 @@ var GameModelModule = (function () {
 
         //Left
         left.press = function () {
-            model.thisvx = -5;
-            model.thisvy = 0;
-            animationDir = "l";
-            animationType = 1;
+            if (collision()){
+                model.thisvx = -5;
+                model.thisvy = 0;
+                animationDir = "l";
+                animationType = 1;
+            }
         };
         left.release = function () {
             if (!right.isDown && model.thisvy === 0) {
@@ -379,6 +386,38 @@ var GameModelModule = (function () {
 
     function gameLoop(delta) {
         state(delta);
+    }
+    
+    function contain(sprite) {
+
+        let collision = false;
+
+        //Left
+        if (sprite.x < container.x) {
+          sprite.x = container.x;
+          collision = true;
+        }
+
+        //Top
+        if (sprite.y < container.y) {
+          sprite.y = container.y;
+          collision = true;
+        }
+
+        //Right
+        if (sprite.x + sprite.width > container.width) {
+          sprite.x = container.width - sprite.width;
+          collision = true;
+        }
+
+        //Bottom
+        if (sprite.y + sprite.height > container.height) {
+          sprite.y = container.height - sprite.height;
+          collision = true;
+        }
+
+        //Return the `collision` value
+        return collision;
     }
     
     function collision(sprite){
