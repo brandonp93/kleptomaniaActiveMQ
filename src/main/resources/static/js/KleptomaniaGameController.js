@@ -553,10 +553,8 @@ var GameModelModule = (function () {
     }
     
     function PoliceCapture(sprite){
-        var i = 0;
-        var keys = model.players.keys();
-        while (i<keys.lenght && !model.inPrision){
-            player = players[key[i]];
+        for (var key in model.players){
+            player = model.players[key];
             if (ColSprites(sprite,player.SpriteAct) || ColSprites(sprite,player.SpriteAct)){
                 if (model.team="T"){
                     model.inPrision = true;
@@ -592,7 +590,6 @@ var GameModelModule = (function () {
                         }));
                 }
             }
-            i+=1;
         }
     }
        
@@ -608,6 +605,7 @@ var GameModelModule = (function () {
     
     function play() {
             if (contain(model.SpriteAct,currentArea) && !collision(model.SpriteAct)){
+                PoliceCapture(model.SpriteAct);
                 model.thisxpos += model.thisvx;
                 model.thisypos += model.thisvy;
                 paintm(model);
@@ -669,7 +667,7 @@ var GameModelModule = (function () {
                                                 animationType: data.animationType,
                                                 animationDir: data.animationDir, 
                                                 inPrision: data.inPrision,
-                                                SpriteAct: null};
+                                                SpriteAct: data.SpriteAct};
             paintExt(model.players[data.identification]);
 
         }
