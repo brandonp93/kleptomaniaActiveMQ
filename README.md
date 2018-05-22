@@ -13,15 +13,11 @@ Como idea de juego dos equipos comparten un mismo tablero, los equipos van a est
 
 ### Ladrones 
 * Pueden ver la posición de sus compañeros y de los policías
-* Existe la posibilidad de rescatar un compañero 1 sola vez por partida
-* Aparecerán aleatoriamente en el mapa lingotes de oro lo cual aumentará su puntaje
 * Ganan la partida si termina el tiempo y no han sido capturados
 
 
-### Policías (WIP)
-* Pueden ver la posición de sus compañeros pero no de los ladrones
-* Tienen un rango determinado por una linterna/luz lo cual les permite detectar los rivales en este rango
-* Cada capturado dará al policía un bonus al azar
+### Policías
+* Pueden ver la posición de sus contraincantes
 * Ganan la partida si todos los ladrones son capturados
 
 ## Instrucciones de uso
@@ -34,9 +30,8 @@ Como idea de juego dos equipos comparten un mismo tablero, los equipos van a est
 4. El juego iniciará automáticamente cuando la sala esté completa.
 5. Instrucciones de juego
     1. El movimiento del personaje se realizará mediante las flechas del teclado.
-    2. Se debe evitar a toda costa ser visto por un policía.
-    3. Existirán paredes las cuales no podrás atravesar. ¡ten cuidado de no quedar encerrado con un policía!.
-    4. Si alguno de tus compañeros es capturado tendrán 1 sola oportunidad de liberarlo de la carcel. ¡Debes usarla sabiamente!.
+    2. Ladron: Debes evitar a toda costa ser capturado por un policía.
+    3. Policía: Debes hacer lo imposible para capturar el ladrón
 
 ***Por último pero no menos importante...¡Diviertete!***
 
