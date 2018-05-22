@@ -20,6 +20,7 @@ public class Player {
     String thisvy;
     String animationDir;
     String animationType;
+    String inPrision;
 
     public String getThisvx() {
         return thisvx;
@@ -98,6 +99,14 @@ public class Player {
     public void setAnimationDir(String animationDir) {
         this.animationDir = animationDir;
     }
+    
+    public String getInPrision(){
+        return inPrision;
+    }
+    
+    public void setInPrision(String inPrision){
+        this.inPrision = inPrision;
+    }
 
     @Override
     public String toString() {
@@ -111,6 +120,7 @@ public class Player {
                 ", thisvy='" + thisvy + '\'' +
                 ", animationDir='" + animationDir + '\'' +
                 ", animationType='" + animationType + '\'' +
+                ", inPrision='"+inPrision+'\''+
                 '}';
     }
 

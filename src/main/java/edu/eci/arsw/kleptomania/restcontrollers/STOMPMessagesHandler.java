@@ -45,5 +45,12 @@ public class STOMPMessagesHandler {
                 //enviar posicion a la que se va a mover el jugardor
 		msgt.convertAndSend("/topic/colorized."+roomNumber, p);
 	}
-    
+        
+        //cuando un policia captura un jugador debe enviarlo a la carcel
+        @MessageMapping("/captured.{roomNumber}")
+        public void handleCapture (Player p, @DestinationVariable String roomNumber)throws Exception {
+            //capturar al ladron
+            System.out.println("capturado: "+p.getNickname()+" team:"+p.getTeam());
+            msgt.convertAndSend("/topic/captured."+roomNumber,p);
+        }
 }
