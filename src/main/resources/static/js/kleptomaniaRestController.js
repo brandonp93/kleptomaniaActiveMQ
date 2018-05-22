@@ -36,6 +36,7 @@ var RestControllerModule = (function () {
             });
     };
 
+
     var getCurrentPlayers =  function (lobby) {
         axios.get('/lobby/'+lobby+'/thief').then(function (response) {
             console.log(response);
@@ -46,12 +47,89 @@ var RestControllerModule = (function () {
         });
 
     }
+    
+    var getCurrentPlayersRoom =  function (lobby) {
+        axios.get('/lobby/'+lobby+'/thief').then(function (response) {
+            console.log(response);
+            console.log("Get current players respuesta: RESTTTTTTTTTTTTTTTTTTTTTTT " +response['data']);
+            RoomControllerModule.sendToRoom(response['data'],lobby)
+        }).catch(function (error) {
+            console.log(error);
+        });
 
+    }
+    
+    var getPlayerId = function (lobby,nickname) {
+        console.log("Imprimiendo el nickname que llega por parametro: ", nickname);
+        console.log("Imprimiendo el lobby que llega por parametro: ", lobby);
+        axios.get('/lobby/'+lobby+'/'+nickname).then(function (response) {
+            console.log(response);
+            console.log("Se deberia imprimir la letra con creatingposition")
+            GameModelModule.creatingPosition(response['data']);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+    var deleteEverything = function () {
+    // todo implement
+        axios.delete('/lobby').then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+    var getPlayerTeam = function(lobby,nickname){
+        axios.get('/lobby/'+lobby+'/'+nickname+'/team').then(function (response) {
+            console.log(response);
+            GameModelModule.joinMyTeam(response['data']);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+    var getPlayerChangeTeam = function(lobby,nickname){
+        axios.get('/lobby/'+lobby+'/'+nickname+'/team').then(function (response) {
+            console.log('GerPlayerChangeTeam');
+            console.log(response);
+            TeamControllerModule.isPossible(response['data'],lobby);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+    var getLadrones = function(lobby,teamChar){
+        axios.get('/lobby/'+lobby+'/ladrones').then(function (response) {
+            console.log(response);
+            TeamControllerModule.tryToChange(response['data'],teamChar,lobby);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+    var getPolicias = function(lobby,teamChar){
+        axios.get('/lobby/'+lobby+'/policias').then(function (response) {
+            console.log(response);
+            TeamControllerModule.tryToChange(response['data'],teamChar,lobby);
+        }).catch(function (error) {
+            console.log(error);
+        });
+        
+    }
+    
     return {
         newLobby: newLobby,
         getRooms: getRooms,
-        joining: joining,
-        getCurrentPlayers: getCurrentPlayers
+        joining: joining,      
+        getPlayerId: getPlayerId,
+        getCurrentPlayers: getCurrentPlayers,
+        deleteEverything: deleteEverything,
+        getPlayerTeam: getPlayerTeam,
+        getCurrentPlayersRoom: getCurrentPlayersRoom,
+        getLadrones: getLadrones,
+        getPolicias: getPolicias,
+        getPlayerChangeTeam: getPlayerChangeTeam
     };
 
 })();

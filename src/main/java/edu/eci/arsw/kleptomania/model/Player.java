@@ -13,7 +13,56 @@ public class Player {
 
     String nickname;
     String identification;
+    String team;
+    String thisxpos;
+    String thisypos;
+    String thisvx;
+    String thisvy;
+    String animationDir;
+    String animationType;
+
+    public String getThisvx() {
+        return thisvx;
+    }
+
+    public void setThisvx(String thisvx) {
+        this.thisvx = thisvx;
+    }
+
+    public String getThisvy() {
+        return thisvy;
+    }
+
+    public void setThisvy(String thisvy) {
+        this.thisvy = thisvy;
+    }
     
+    
+    public String getThisxpos() {
+        return thisxpos;
+    }
+
+    public void setThisxpos(String thisxpos) {
+        this.thisxpos = thisxpos;
+    }
+
+    public String getThisypos() {
+        return thisypos;
+    }
+
+    public void setThisypos(String thisypos) {
+        this.thisypos = thisypos;
+    }
+   
+    
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
     public Player(){
     
     }
@@ -33,6 +82,36 @@ public class Player {
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
-    
-    
+
+    public String getAnimationType() {
+        return animationType;
+    }
+
+    public void setAnimationType(String animationType) {
+        this.animationType = animationType;
+    }
+
+    public String getAnimationDir() {
+        return animationDir;
+    }
+
+    public void setAnimationDir(String animationDir) {
+        this.animationDir = animationDir;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "nickname='" + nickname + '\'' +
+                ", identification='" + identification + '\'' +
+                ", team='" + team + '\'' +
+                ", thisxpos='" + thisxpos + '\'' +
+                ", thisypos='" + thisypos + '\'' +
+                ", thisvx='" + thisvx + '\'' +
+                ", thisvy='" + thisvy + '\'' +
+                ", animationDir='" + animationDir + '\'' +
+                ", animationType='" + animationType + '\'' +
+                '}';
+    }
+
 }
