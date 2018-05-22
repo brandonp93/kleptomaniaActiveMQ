@@ -359,8 +359,7 @@ var GameModelModule = (function () {
                 init();
             });
     };
-
-
+    
     function init() {
         //model.thisxpos = (Math.random() * 300) + 1;
         //model.thisypos = (Math.random() * 300) + 1;
@@ -566,32 +565,25 @@ var GameModelModule = (function () {
                     model.thisypos = 10;
                     model.SpriteAct.x = 10;
                     model.SpriteAct.y = 10;
+                    model.animationType = 0;
+                    model.animationDir = "d";
                     currentArea = prision;
-                    stompClient.send("/app/captured." + sala, {}, JSON.stringify(
-                        {   nickname: model.nickname,
-                            identification: model.identification,
-                            team: model.team,
-                            thisxpos: model.thisxpos,
-                            thisypos: model.thisypos,
-                            thisvy: 0,
-                            thisvx: 0,
-                            animationType: 0,
-                            animationDir: model.animationDir,
-                            inPrision: model.inPrision
-                        }));
+                    
                 }else if (model.team="C"){
-                    stompClient.send("/app/captured." + sala, {}, JSON.stringify(
-                        {   nickname: player.nickname,
-                            identification: player.identification,
-                            team: player.team,
-                            thisxpos: 10,
-                            thisypos: 10,
-                            thisvy: 0,
-                            thisvx: 0,
-                            animationType: 0,
-                            animationDir: player.animationDir,
-                            inPrision: true
-                        }));
+                    if (model.identification != player.identification){
+                        stompClient.send("/app/captured." + sala, {}, JSON.stringify(
+                            {   nickname: player.nickname,
+                                identification: player.identification,
+                                team: player.team,
+                                thisxpos: 10,
+                                thisypos: 10,
+                                thisvy: 0,
+                                thisvx: 0,
+                                animationType: 0,
+                                animationDir: player.animationDir,
+                                inPrision: true
+                            }));
+                    } 
                 }
             }
         }
@@ -643,8 +635,6 @@ var GameModelModule = (function () {
                         }));
                     model.animStatic = 1;
                 }
-            }else if (model.inPrision){
-                currentArea = prision;                                
             }else{
                 model.thisvx = 0;
                 model.thisvy = 0;
@@ -816,6 +806,7 @@ var GameModelModule = (function () {
             model.animatioDir = data.animationDir;
             model.thisvx = 0;
             model.thisvy = 0;
+            currentArea = Prision;
         }        
     };
     
