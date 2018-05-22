@@ -13,7 +13,7 @@ var model = {
     animationType: 0,
     animationDir: 'd',
     animStatic: 0,
-    tNum:0
+    tNum:0,
     inPrision: false
 };
 
@@ -357,7 +357,7 @@ var GameModelModule = (function () {
         if (model.team == "T"){
             model.SpriteAct=TDStatic1;
         }else if (model.team=="C"){
-            model.SpriteAct=PDStatic1;
+            model.SpriteAct=PDStatic;
         }
         model.SpriteAct.x = model.thisxpos;
         model.SpriteAct.y = model.thisypos;
