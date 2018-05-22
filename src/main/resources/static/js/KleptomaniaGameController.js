@@ -364,8 +364,11 @@ var GameModelModule = (function () {
     function init() {
         //model.thisxpos = (Math.random() * 300) + 1;
         //model.thisypos = (Math.random() * 300) + 1;
-
-        model.SpriteAct=TDStatic1;
+        if (model.team == "T"){
+            model.SpriteAct=TDStatic1;
+        }else if (model.team=="C"){
+            model.SpriteAct=PDStatic1;
+        }
         model.SpriteAct.x = model.thisxpos;
         model.SpriteAct.y = model.thisypos;
         model.SpriteAct.visible = true;
@@ -415,11 +418,16 @@ var GameModelModule = (function () {
 
         //Left
         left.press = function () {
-            model.thisvx = -5;
-            model.thisvy = 0;
-            model.animationDir = "l";
-            model.animationType = 1;
-            model.animStatic = 0;
+            if (contain(model.SpriteAct,container)){
+                model.thisvx = -5;
+                model.thisvy = 0;
+                model.animationDir = "l";
+                model.animationType = 1;
+                model.animStatic = 0;
+            }else{
+                model.animationType = 0;
+                model.thisvx=0;
+            }
         };
         left.release = function () {
             if (!right.isDown && model.thisvy === 0) {
@@ -430,11 +438,18 @@ var GameModelModule = (function () {
 
         //Up
         up.press = function () {
-            model.thisvy = -5;
-            model.thisvx = 0;
-            model.animationDir = "u";
-            model.animationType = 1;
-            model.animStatic = 0;
+            if (contain(model.SpriteAct,container)){
+                model.thisvy = -5;
+                model.thisvx = 0;
+                model.animationDir = "u";
+                model.animationType = 1;
+                model.animStatic = 0;
+            }else{
+                model.thisypos = container.y;
+                model.SpriteAct.y = model.thisypos;
+                model.animationType = 0;
+                model.thisvy = 0;
+            }
         };
         up.release = function () {
             if (!down.isDown && model.thisvx === 0) {
@@ -460,11 +475,18 @@ var GameModelModule = (function () {
 
         //Down
         down.press = function () {
-            model.thisvy = 5;
-            model.thisvx = 0;
-            model.animationDir ="d";
-            model.animationType = 1;
-            model.animStatic = 0;
+            if (contain(model.SpriteAct,container)){
+                model.thisvy = 5;
+                model.thisvx = 0;
+                model.animationDir ="d";
+                model.animationType = 1;
+                model.animStatic = 0;
+            }else{
+                model.thisypos = container.height - model.SpriteAct.height;
+                sprite.y = model.thisypos;
+                model.animationType = 0;
+                model.thisvy = 0; 
+            }
         };
         down.release = function () {
             if (!up.isDown && model.thisvx === 0) {
@@ -494,32 +516,31 @@ var GameModelModule = (function () {
         state(delta);
     }
     
-    function contain(sprite) {
-
-        let collision = false;
-
+    function contain(sprite, contenedor) {
+        var collision = true;
+        
         //Left
-        if (sprite.x < container.x) {
-          sprite.x = container.x;
-          collision = true;
+        if (sprite.x < contenedor.x) {
+            model.thisxpos = contenedor.x;
+            sprite.x = model.thisxpos;
+            collision = false;
         }
 
         //Top
-        if (sprite.y < container.y) {
-          sprite.y = container.y;
-          collision = true;
+        if (sprite.y < contenedor.y) {
+            collision = false;
         }
 
         //Right
-        if (sprite.x + sprite.width > container.width) {
-          sprite.x = container.width - sprite.width;
-          collision = true;
+        if (sprite.x + sprite.width > contenedor.width) {
+            model.thisxpos = contenedor.width - model.SpriteAct.width;
+            sprite.x = model.thisxpos;
+            collision = false;
         }
 
         //Bottom
-        if (sprite.y + sprite.height > container.height) {
-          sprite.y = container.height - sprite.height;
-          collision = true;
+        if (sprite.y + sprite.height > contenedor.height) {
+            collision = false;
         }
 
         //Return the `collision` value
@@ -533,10 +554,11 @@ var GameModelModule = (function () {
             collited = hitTestRectangle(sprite, houses[i]);
             i+=1;
         }
+        return collited;
     }
     
     function play() {
-
+            if (contain(model.SpriteAct,container)){
             model.thisxpos += model.thisvx;
             model.thisypos += model.thisvy;
             paintm(model);
