@@ -501,7 +501,11 @@ var GameModelModule = (function () {
     
     function cp (point,Sprite){
         //calculate if the point (tuple) is over an sprite
-        return ((Sprite.x<point[0]) && (Sprite.x+Sprite.width)>point[0]) && (Sprite.y<point[1] && (Sprite.y+Sprite.height)>point[1]);
+        if (Sprite!=null){
+            return ((Sprite.x<point[0]) && (Sprite.x+Sprite.width)>point[0]) && (Sprite.y<point[1] && (Sprite.y+Sprite.height)>point[1]);
+        }else{
+            return false;
+        }
     }
     
     function ColSprites(Sprite1, Sprite2){
@@ -555,7 +559,7 @@ var GameModelModule = (function () {
     function PoliceCapture(sprite){
         for (var key in model.players){
             player = model.players[key];
-            if (ColSprites(sprite,player.SpriteAct) || ColSprites(sprite,player.SpriteAct)){
+            if ((ColSprites(sprite,player.SpriteAct) || ColSprites(sprite,player.SpriteAct)) && (!player.inPrision && !model.inPrision)){
                 if (model.team="T"){
                     model.inPrision = true;
                     model.thisxpos = 10;
@@ -569,22 +573,22 @@ var GameModelModule = (function () {
                             team: model.team,
                             thisxpos: model.thisxpos,
                             thisypos: model.thisypos,
-                            thisvy: model.thisvy,
-                            thisvx: model.thisvx,
-                            animationType: model.animationType,
+                            thisvy: 0,
+                            thisvx: 0,
+                            animationType: 0,
                             animationDir: model.animationDir,
                             inPrision: model.inPrision
                         }));
-                }else{
+                }else if (model.team="C"){
                     stompClient.send("/app/captured." + sala, {}, JSON.stringify(
                         {   nickname: player.nickname,
                             identification: player.identification,
                             team: player.team,
-                            thisxpos: player.thisxpos,
-                            thisypos: player.thisypos,
-                            thisvy: player.thisvy,
-                            thisvx: player.thisvx,
-                            animationType: player.animationType,
+                            thisxpos: 10,
+                            thisypos: 10,
+                            thisvy: 0,
+                            thisvx: 0,
+                            animationType: 0,
                             animationDir: player.animationDir,
                             inPrision: true
                         }));
@@ -667,7 +671,8 @@ var GameModelModule = (function () {
                                                 animationType: data.animationType,
                                                 animationDir: data.animationDir, 
                                                 inPrision: data.inPrision,
-                                                SpriteAct: data.SpriteAct};
+                                                SpriteAct: null
+                                            };
             paintExt(model.players[data.identification]);
 
         }
@@ -809,9 +814,8 @@ var GameModelModule = (function () {
             model.inPrision = data.inPrision;
             model.animationType = data.animationType;
             model.animatioDir = data.animationDir;
-            model.thisvx = data.thisvx;
-            model.thisvy = data.thisvy;
-            model.SpriteAct = data.SpriteAct;
+            model.thisvx = 0;
+            model.thisvy = 0;
         }        
     };
     
@@ -881,7 +885,6 @@ var GameModelModule = (function () {
         });
        
     };
-
 
     return {
         playing: playing,
