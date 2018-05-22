@@ -13,7 +13,8 @@ var model = {
     animationType: 0,
     animationDir: 'd',
     animStatic: 0,
-    tNum:0
+    tNum:0,
+    inPrision: false
 };
 
 var Dx = 1280;
@@ -24,13 +25,14 @@ var GameModelModule = (function () {
     //Alias
     var app;
     var Application = PIXI.Application;
-    var Container = PIXI.Container;
+    var currentArea = "";
     var loader = PIXI.loader;
     var resources = PIXI.loader.resources;
     var TextureCache = PIXI.utils.TextureCache;
     var Sprite = PIXI.Sprite;
     var Rectangle = PIXI.Rectangle;
-    var container = {x: 0, y: 0, width: Dx, height: Dy};
+    var libre = {x: 0, y: 250, width: Dx, height: Dy};
+    var prision = {x:0, y:0, width: Dx, height: 250};
 
     //Sprites var
     var PRStatic;
@@ -97,27 +99,16 @@ var GameModelModule = (function () {
                 Background.visible = true;
                 app.stage.addChild(Background);
                 //load Houses
-                var a = screen.width/4;
-                var b = screen.height/4;
-                var xs = [50,a,a*2,a*3];
-                var ys = [10,b,b*2,b*3];
-                var c = 0;
-                var d = 0;
+                var positions = [[1,180,270],[3,380,320],[2,60,470],[2,580,270],[1,900,500],[1,800,280],[3,550,500],[2,1100,280]];
                 for (i=0; i<8; i++){
-                    var House = new Sprite(resources.spritesheet.textures["house"+Math.floor((Math.random() * 3) + 1)+".png"]);
+                    var House = new Sprite(resources.spritesheet.textures["house"+positions[i][0]+".png"]);
                     House.scale.x = 0.5;
                     House.scale.y = 0.5;
-                    House.x = xs[d];
-                    House.y = ys[c];  
+                    House.x = positions[i][1];
+                    House.y = positions[i][2];  
                     House.visible = true;
                     houses.push(House);
                     app.stage.addChild(House);
-                    if (d==3){
-                        c+=1;
-                        d=0;
-                    }else{
-                        d+=1;
-                    } 
                 }
 
                 //set the image of the police to right
@@ -194,6 +185,15 @@ var GameModelModule = (function () {
                 TDStatic2.scale.y = 0.3;
                 TDStatic2.visible = false;
                 app.stage.addChild(TDStatic2);
+                
+                //load the prision
+                Prision = new Sprite(resources.spritesheet.textures["prision.png"]);
+                Prision.visible = true;
+                Prision.scale.x = 6.0;
+                Prision.scale.y = 0.6;
+                Prision.x=0;
+                Prision.y=0;
+                app.stage.addChild(Prision);
 
                 //Load the resources of the world
                 Diamond = new Sprite(resources.spritesheet.textures["Diamond.png"]);
@@ -349,13 +349,16 @@ var GameModelModule = (function () {
                 init();
             });
     };
-
-
+    
     function init() {
         //model.thisxpos = (Math.random() * 300) + 1;
         //model.thisypos = (Math.random() * 300) + 1;
-
-        model.SpriteAct=TDStatic1;
+        currentArea = libre;
+        if (model.team == "T"){
+            model.SpriteAct=TDStatic1;
+        }else if (model.team=="C"){
+            model.SpriteAct=PDStatic;
+        }
         model.SpriteAct.x = model.thisxpos;
         model.SpriteAct.y = model.thisypos;
         model.SpriteAct.visible = true;
@@ -481,7 +484,8 @@ var GameModelModule = (function () {
                 thisvy: model.thisvy,
                 thisvx: model.thisvx,
                 animationType: model.animationType,
-                animationDir: model.animationDir
+                animationDir: model.animationDir,
+                inPrision : model.inPrision
             }));
 
         state = play;
@@ -493,79 +497,147 @@ var GameModelModule = (function () {
         state(delta);
     }
     
-    function contain(sprite) {
-
-        let collision = false;
-
+    function cp (point,Sprite){
+        //calculate if the point (tuple) is over an sprite
+        if (Sprite!=null){
+            return ((Sprite.x<point[0]) && (Sprite.x+Sprite.width)>point[0]) && (Sprite.y<point[1] && (Sprite.y+Sprite.height)>point[1]);
+        }else{
+            return false;
+        }
+    }
+    
+    function ColSprites(Sprite1, Sprite2){
+        //get the bounds of the Sprite1
+        var ax = Sprite1.x;
+        var ay = Sprite1.y;
+        var bx = ax+Sprite1.width;
+        var by = ay;
+        var cx = ax;
+        var cy = cx+Sprite1.height;
+        var dx = bx;
+        var dy = dx+cy;
+        return (cp([ax,ay],Sprite2) && cp([bx,by],Sprite2) && cp([cx,cy],Sprite2) && cp([dx,dy],Sprite2));
+    }
+    
+    function contain(sprite, contenedor) {
+        var collision = true;
+        
         //Left
-        if (sprite.x < container.x) {
-          sprite.x = container.x;
-          collision = true;
+        if (sprite.x < contenedor.x) {
+            model.thisxpos = contenedor.x;
+            sprite.x = model.thisxpos;
+            collision = false;
         }
 
         //Top
-        if (sprite.y < container.y) {
-          sprite.y = container.y;
-          collision = true;
+        if (sprite.y < contenedor.y) {
+            model.thisypos = contenedor.y;
+            sprite.y = model.thisypos;
+            collision = false;
         }
 
         //Right
-        if (sprite.x + sprite.width > container.width) {
-          sprite.x = container.width - sprite.width;
-          collision = true;
+        if (sprite.x + sprite.width > contenedor.width) {
+            model.thisxpos = contenedor.width - sprite.width;
+            sprite.x = model.thisxpos;
+            collision = false;
         }
 
         //Bottom
-        if (sprite.y + sprite.height > container.height) {
-          sprite.y = container.height - sprite.height;
-          collision = true;
+        if (sprite.y + sprite.height > contenedor.height) {
+            model.thisypos = contenedor.height - sprite.height;
+            sprite.y = model.thisypos;
+            collision = false;
         }
 
         //Return the `collision` value
         return collision;
     }
     
+    function PoliceCapture(sprite){
+        for (var key in model.players){
+            player = model.players[key];
+            if ((ColSprites(sprite,player.SpriteAct) || ColSprites(sprite,player.SpriteAct)) && (!player.inPrision && !model.inPrision)){
+                if (model.team="T"){
+                    model.inPrision = true;
+                    model.thisxpos = 10;
+                    model.thisypos = 10;
+                    model.SpriteAct.x = 10;
+                    model.SpriteAct.y = 10;
+                    model.animationType = 0;
+                    model.animationDir = "d";
+                    currentArea = prision;
+                    
+                }else if (model.team="C"){
+                    if (model.identification != player.identification){
+                        stompClient.send("/app/captured." + sala, {}, JSON.stringify(
+                            {   nickname: player.nickname,
+                                identification: player.identification,
+                                team: player.team,
+                                thisxpos: 10,
+                                thisypos: 10,
+                                thisvy: 0,
+                                thisvx: 0,
+                                animationType: 0,
+                                animationDir: player.animationDir,
+                                inPrision: true
+                            }));
+                    } 
+                }
+            }
+        }
+    }
+       
     function collision(sprite){
         var collited = false;
         var i = 0;
         while (i<houses.length && !collited){
-            collited = hitTestRectangle(sprite, houses[i]);
+            collited = (ColSprites(sprite, houses[i]) || ColSprites(houses[i],sprite));
             i+=1;
         }
+        return collited;
     }
     
     function play() {
-
-            model.thisxpos += model.thisvx;
-            model.thisypos += model.thisvy;
-            paintm(model);
-            if(model.animationType != 0 ){
-                stompClient.send("/app/position." + sala, {}, JSON.stringify(
-                    {
-                        nickname: model.nickname,
-                        identification: model.identification,
-                        team: model.team,
-                        thisxpos: model.thisxpos,
-                        thisypos: model.thisypos,
-                        thisvy: model.thisvy,
-                        thisvx: model.thisvx,
-                        animationType: model.animationType,
-                        animationDir: model.animationDir
-                    }));
-            }else if (model.animationType == 0 && model.animStatic != 1){
-                stompClient.send("/app/position." + sala, {}, JSON.stringify(
-                    {
-                        nickname: model.nickname,
-                        identification: model.identification,
-                        team: model.team,
-                        thisxpos: model.thisxpos,
-                        thisypos: model.thisypos,
-                        thisvy: model.thisvy,
-                        thisvx: model.thisvx,
-                        animationType: model.animationType,
-                        animationDir: model.animationDir
-                    }));
-                model.animStatic = 1;
+            if (contain(model.SpriteAct,currentArea) && !collision(model.SpriteAct)){
+                PoliceCapture(model.SpriteAct);
+                model.thisxpos += model.thisvx;
+                model.thisypos += model.thisvy;
+                paintm(model);
+                if(model.animationType != 0 ){
+                    stompClient.send("/app/position." + sala, {}, JSON.stringify(
+                        {
+                            nickname: model.nickname,
+                            identification: model.identification,
+                            team: model.team,
+                            thisxpos: model.thisxpos,
+                            thisypos: model.thisypos,
+                            thisvy: model.thisvy,
+                            thisvx: model.thisvx,
+                            animationType: model.animationType,
+                            animationDir: model.animationDir,
+                            inPrision: model.inPrision
+                        }));
+                }else if (model.animationType == 0 && model.animStatic != 1){
+                    stompClient.send("/app/position." + sala, {}, JSON.stringify(
+                        {
+                            nickname: model.nickname,
+                            identification: model.identification,
+                            team: model.team,
+                            thisxpos: model.thisxpos,
+                            thisypos: model.thisypos,
+                            thisvy: model.thisvy,
+                            thisvx: model.thisvx,
+                            animationType: model.animationType,
+                            animationDir: model.animationDir,
+                            inPrision: model.inPrision
+                        }));
+                    model.animStatic = 1;
+                }
+            }else{
+                model.thisvx = 0;
+                model.thisvy = 0;
+                model.animationType = 0;
             }
 
     }
@@ -578,17 +650,25 @@ var GameModelModule = (function () {
             model.players[data.identification].animationType = data.animationType;
             paintExt(model.players[data.identification]);
         }else if (data.identification !== model.identification) {
-            model.players[data.identification] = {nickname: data.nickname, identification: data.identification,
-                                                  team: data.team, thisxpos: data.thisxpos, thisypos: data.thisypos,
-                                                  thisvy: data.thisvy, thisvx: data.thisvx, animationType: data.animationType,
-                                                  animationDir: data.animationDir, SpriteAct: null, tNum:null};
+            model.players[data.identification] = {nickname: data.nickname, 
+                                                identification: data.identification,
+                                                team: data.team, 
+                                                thisxpos: data.thisxpos, 
+                                                thisypos: data.thisypos,
+                                                thisvy: data.thisvy, 
+                                                thisvx: data.thisvx, 
+                                                animationType: data.animationType,
+                                                animationDir: data.animationDir, 
+                                                inPrision: data.inPrision,
+                                                SpriteAct: null,
+                                                tNum:null
+                                            };
             if(data.team == 'T'){
                 model.tNum++;
                 model.players[data.identification].tNum = model.tNum;
             }
+
             paintExt(model.players[data.identification]);
-
-
         }
     };
 
@@ -724,6 +804,19 @@ var GameModelModule = (function () {
         data.SpriteAct.visible = true;
     };
 
+    var imCaptured = function(data){
+        if (data.inPrision && (data.identificacion == model.identificacion) && !model.inPrision){
+            model.thisxpos = data.thisxpos;
+            model.thisypos = data.thisypos;
+            model.inPrision = data.inPrision;
+            model.animationType = data.animationType;
+            model.animatioDir = data.animationDir;
+            model.thisvx = 0;
+            model.thisvy = 0;
+            currentArea = Prision;
+        }        
+    };
+    
     var playing = function () {
         
         nickname = sessionStorage.getItem('nickname');
@@ -780,6 +873,10 @@ var GameModelModule = (function () {
             stompClient.subscribe('/topic/colorized.'+lobby, function (data) {
                 receipt(JSON.parse(data.body));
             });
+            stompClient.subscribe('/topic/captured.'+lobby, function (data) {
+                imCaptured(JSON.parse(data.body));
+            });
+            
             RestControllerModule.getPlayerId(sala,nickname);
             RestControllerModule.getPlayerTeam(sala,nickname);
             
