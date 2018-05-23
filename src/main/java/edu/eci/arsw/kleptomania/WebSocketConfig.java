@@ -14,7 +14,7 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        config.enableStompBrokerRelay("/topic/").setRelayHost("10.0.0.4").setRelayPort(61613);
+        config.enableStompBrokerRelay("/topic/").setRelayHost("10.0.0.5").setRelayPort(61613);
         config.setApplicationDestinationPrefixes("/app");        
     }
 
